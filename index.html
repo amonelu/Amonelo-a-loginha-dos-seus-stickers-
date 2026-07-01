@@ -24,53 +24,47 @@
             min-height: 100vh;
             font-family: 'Segoe Print', cursive;
         }
-        .fundo-padrao {
-            background-image: url('imagens/banner.png');
-            background-size: cover;
-            background-position: center;
+        .banner-principal {
+            background: #fff;
             border-radius: 2rem;
-            min-height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 4px 12px rgba(154, 77, 255, 0.15);
+            overflow: hidden;
+        }
+        .card-sticker {
+            background: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 3px 10px rgba(255, 71, 175, 0.12);
+            transition: transform 0.2s ease;
+        }
+        .card-sticker:hover {
+            transform: scale(1.02);
+        }
+        .btn-rosa {
+            background: #FF47AF;
             color: white;
-            text-shadow: 0 0 8px rgba(0,0,0,0.3);
+            border-radius: 9999px;
+            transition: background 0.2s;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 999;
-            padding: 1rem;
-            overflow-y: auto;
+        .btn-rosa:hover {
+            background: #E03A98;
         }
-        .modal-conteudo {
-            background: white;
-            border-radius: 2rem;
-            max-width: 500px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .btn-roxo {
+            background: #9A4DFF;
+            color: white;
+            border-radius: 9999px;
         }
-        .sticker-item {
-            border: 2px solid transparent;
-            transition: all 0.2s;
-        }
-        .sticker-item.selecionado {
-            border-color: #FF47AF;
-            background: #FFE6F7;
-            transform: scale(1.03);
+        .btn-roxo:hover {
+            background: #8238E0;
         }
     </style>
 </head>
-<body class="font-fofa">
+<body>
 
 <!-- Cabeçalho -->
-<header class="bg-white/90 shadow-md rounded-b-3xl px-4 py-3">
+<header class="bg-white/90 shadow-md rounded-b-3xl px-4 py-3 mb-4">
     <div class="flex justify-between items-center">
-        <h1 class="text-xl font-bold bg-gradient-to-r from-rosa-escuro to-roxo-escuro bg-clip-text text-transparent">💖 Amonelu Stickers</h1>
-        <div class="flex gap-4 text-sm">
+        <h1 class="text-lg md:text-xl font-bold bg-gradient-to-r from-rosa-escuro to-roxo-escuro bg-clip-text text-transparent">💖 Amonelu Stickers</h1>
+        <div class="flex gap-3 text-sm">
             <a href="#inicio" class="text-roxo-escuro hover:text-rosa-escuro">Início</a>
             <a href="#produtos" class="text-roxo-escuro hover:text-rosa-escuro">Stickers</a>
             <a href="#carrinho" class="text-roxo-escuro hover:text-rosa-escuro">Carrinho <span id="contador" class="bg-rosa-escuro text-white px-2 rounded-full text-xs">0</span></a>
@@ -78,20 +72,25 @@
     </div>
 </header>
 
-<div class="container mx-auto px-3 py-5">
+<div class="container mx-auto px-3">
 
-    <!-- Banner -->
-    <section id="inicio" class="fundo-padrao text-center mb-6">
-        <div>
-            <h2 class="text-4xl font-bold mb-2">AMONELU STICKERS</h2>
-            <p class="text-lg">✨ Stickers personalizados e animados ✨</p>
-            <p class="text-sm mt-2">Alta qualidade • Entrega rápida • Feito com amor 💖</p>
+    <!-- Banner Principal -->
+    <section id="inicio" class="banner-principal mb-6 p-3">
+        <img src="imagens/banner.png" alt="Amonelu Stickers" class="w-full h-auto rounded-xl">
+        <div class="text-center mt-3">
+            <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-rosa-escuro to-roxo-escuro bg-clip-text text-transparent">AMONELU STICKERS</h2>
+            <p class="text-gray-600 mt-2">✨ Stickers animados e prontos para WhatsApp e Instagram ✨</p>
+            <div class="flex flex-wrap justify-center gap-3 mt-3 text-sm">
+                <span class="flex items-center gap-1">💖 Alta qualidade</span>
+                <span class="flex items-center gap-1">⚡ Entrega rápida</span>
+                <span class="flex items-center gap-1">💝 Feito com amor</span>
+            </div>
         </div>
     </section>
 
     <!-- Tabela de Preços -->
     <section class="bg-white/90 rounded-3xl p-5 shadow mb-6">
-        <h3 class="text-xl font-bold text-center text-roxo-escuro mb-4">✨ Nossos Preços ✨</h3>
+        <h3 class="text-xl font-bold text-center text-roxo-escuro mb-4">⭐ Nossos Preços ⭐</h3>
         <div class="grid grid-cols-3 gap-3 text-center">
             <div class="bg-rosa-claro rounded-full p-2">3 unidades<br><strong class="text-rosa-escuro">R$ 5,00</strong></div>
             <div class="bg-rosa-claro rounded-full p-2">5 unidades<br><strong class="text-rosa-escuro">R$ 8,00</strong></div>
@@ -102,104 +101,147 @@
         </div>
     </section>
 
-    <!-- Vitrine Principal -->
+    <!-- Vitrine dos Stickers -->
     <section id="produtos" class="mb-8">
         <h3 class="text-xl font-bold text-center text-roxo-escuro mb-5">💖 Nossos Stickers 💖</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
 
-        <!-- Card principal que abre a lista -->
-        <div class="bg-white rounded-3xl shadow p-4 text-center hover:scale-[1.02] transition cursor-pointer" onclick="abrirModal()">
-            <img src="imagens/stickers1.png" alt="Stickers do Cachorrinho" class="w-40 h-40 object-contain mx-auto mb-2">
-            <h4 class="text-lg text-roxo-escuro">Modelos do Cachorrinho</h4>
-            <p class="text-rosa-escuro font-bold">R$ 2,00 cada</p>
-            <button class="mt-2 bg-rosa-escuro text-white px-4 py-2 rounded-full">Ver todos os modelos 🐶</button>
+            <!-- Modelo 1 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers1.png" alt="Modelo 1" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 1</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd1', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd1" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd1', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 1', 2, 'qtd1')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 2 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers2.png" alt="Modelo 2" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 2</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd2', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd2" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd2', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 2', 2, 'qtd2')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 3 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers3.png" alt="Modelo 3" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 3</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd3', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd3" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd3', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 3', 2, 'qtd3')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 4 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers4.png" alt="Modelo 4" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 4</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd4', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd4" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd4', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 4', 2, 'qtd4')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 5 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers5.png" alt="Modelo 5" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 5</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd5', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd5" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd5', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 5', 2, 'qtd5')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 6 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers6.png" alt="Modelo 6" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 6</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd6', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd6" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd6', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 6', 2, 'qtd6')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 7 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers7.png" alt="Modelo 7" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 7</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd7', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd7" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd7', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 7', 2, 'qtd7')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 8 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers8.png" alt="Modelo 8" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 8</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd8', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd8" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd8', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 8', 2, 'qtd8')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
+            <!-- Modelo 9 -->
+            <div class="card-sticker p-4 text-center">
+                <img src="imagens/stickers9.png" alt="Modelo 9" class="w-32 h-32 object-contain mx-auto mb-2">
+                <h4 class="text-roxo-escuro font-medium">Modelo 9</h4>
+                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <button onclick="alterarQtd('qtd9', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
+                    <input type="number" id="qtd9" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
+                    <button onclick="alterarQtd('qtd9', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
+                </div>
+                <button onclick="adicionar('Modelo 9', 2, 'qtd9')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
+            </div>
+
         </div>
     </section>
 
-    <!-- Modal com todos os modelos -->
-    <div id="modalStickers" class="modal">
-        <div class="modal-conteudo">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-roxo-escuro">Escolha os modelos que quer 🐶</h3>
-                <button onclick="fecharModal()" class="text-2xl text-gray-500">&times;</button>
-            </div>
-
-            <div class="grid grid-cols-3 gap-3 mb-4">
-                <!-- Modelo 1 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers1')">
-                    <img src="imagens/stickers1.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 1</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 2 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers2')">
-                    <img src="imagens/stickers2.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 2</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 3 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers3')">
-                    <img src="imagens/stickers3.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 3</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 4 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers4')">
-                    <img src="imagens/stickers4.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 4</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 5 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers5')">
-                    <img src="imagens/stickers5.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 5</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 6 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers6')">
-                    <img src="imagens/stickers6.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 6</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 7 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers7')">
-                    <img src="imagens/stickers7.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 7</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 8 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers8')">
-                    <img src="imagens/stickers8.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 8</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-                <!-- Modelo 9 -->
-                <div class="sticker-item p-2 rounded-xl text-center" onclick="selecionar(this, 'stickers9')">
-                    <img src="imagens/stickers9.png" class="w-20 h-20 mx-auto">
-                    <p class="text-sm mt-1">Modelo 9</p>
-                    <input type="number" min="0" max="10" value="0" class="w-14 text-center border rounded mt-1">
-                </div>
-            </div>
-
-            <button onclick="adicionarTodos()" class="w-full bg-rosa-escuro text-white py-3 rounded-full font-bold">Adicionar ao Carrinho 🛒</button>
-        </div>
-    </div>
-
-    <!-- Carrinho -->
-    <section id="carrinho" class="bg-white/90 rounded-3xl p-5 shadow mb-6">
+    <!-- Carrinho e Pagamento -->
+    <section id="carrinho" class="bg-white/90 rounded-3xl p-5 shadow mb-8">
         <h3 class="text-xl font-bold text-center text-roxo-escuro mb-4">🛒 Seu Carrinho</h3>
-        <div id="listaCarrinho" class="space-y-2 mb-4 text-center text-gray-600">Nenhum item escolhido ainda 💖</div>
+        <div id="listaCarrinho" class="space-y-2 mb-4 text-center text-gray-600">Nenhum item adicionado ainda 💖</div>
         <div class="text-center text-lg font-bold text-roxo-escuro mb-4">Total: R$ <span id="valorTotal">0,00</span></div>
 
         <div id="pagamento" class="hidden p-4 bg-rosa-claro rounded-2xl mb-4">
-            <h4 class="text-lg font-bold text-center text-roxo-escuro mb-2">💳 Pagamento via Pix</h4>
-            <p class="text-center">Chave Pix: <strong>coloque_sua_chave_aqui</strong></p>
-            <p class="text-center text-sm mt-2">Envie o comprovante para o WhatsApp: <strong>(81) 9XXXX-XXXX</strong></p>
+            <h4 class="text-lg font-bold text-center text-roxo-escuro mb-3">💳 Pagamento via Pix</h4>
+            <p class="text-center mb-2">Chave Pix: <strong>coloque_sua_chave_aqui</strong></p>
+            <p class="text-center text-sm">Envie o comprovante para o WhatsApp: <strong>(81) 9XXXX-XXXX</strong></p>
         </div>
 
-        <button onclick="finalizarCompra()" class="w-full bg-roxo-medio text-white py-3 rounded-full font-bold">Finalizar Compra ✨</button>
+        <button onclick="finalizarCompra()" class="btn-roxo w-full py-3 text-lg font-medium">Finalizar Compra ✨</button>
     </section>
 
-    <footer class="text-center text-roxo-escuro text-sm mt-8">
+    <footer class="text-center text-roxo-escuro text-sm mt-6 pb-8">
         <p class="text-lg">💖✨ Obrigada por visitar a Amonelu Stickers ✨💖</p>
         <p>Atendimento com carinho | 2026</p>
     </footer>
@@ -209,36 +251,19 @@
 <script>
 let carrinho = [];
 
-function abrirModal() {
-    document.getElementById('modalStickers').style.display = 'block';
-    document.body.style.overflow = 'hidden';
+function alterarQtd(idCampo, valor) {
+    const campo = document.getElementById(idCampo);
+    let novaQtd = parseInt(campo.value) + valor;
+    if(novaQtd < 1) novaQtd = 1;
+    if(novaQtd > 20) novaQtd = 20;
+    campo.value = novaQtd;
 }
 
-function fecharModal() {
-    document.getElementById('modalStickers').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function selecionar(el, nome) {
-    el.classList.toggle('selecionado');
-}
-
-function adicionarTodos() {
-    const itens = document.querySelectorAll('.sticker-item.selecionado');
-    if (itens.length === 0) {
-        alert('Escolha pelo menos um modelo! 🐶');
-        return;
-    }
-    itens.forEach(item => {
-        const qtd = parseInt(item.querySelector('input').value) || 0;
-        const nome = item.querySelector('p').innerText;
-        if (qtd > 0) {
-            carrinho.push({ nome: nome, preco: 2.00, quantidade: qtd });
-        }
-    });
+function adicionar(nome, preco, idQtd) {
+    const qtd = parseInt(document.getElementById(idQtd).value);
+    carrinho.push({ nome: nome, preco: preco, quantidade: qtd });
     atualizarCarrinho();
-    fecharModal();
-    alert('Adicionado ao carrinho! 🎀');
+    alert(`${nome} adicionado ao carrinho! 🎀`);
 }
 
 function atualizarCarrinho() {
@@ -247,7 +272,7 @@ function atualizarCarrinho() {
     const contadorEl = document.getElementById('contador');
 
     if (carrinho.length === 0) {
-        lista.innerHTML = 'Nenhum item escolhido ainda 💖';
+        lista.innerHTML = 'Nenhum item adicionado ainda 💖';
         totalEl.textContent = '0,00';
         contadorEl.textContent = '0';
         return;
@@ -274,13 +299,14 @@ function atualizarCarrinho() {
 
 function finalizarCompra() {
     if (carrinho.length === 0) {
-        alert('Adicione os stickers primeiro! 💖');
+        alert('Adicione pelo menos um sticker primeiro! 💖');
         return;
     }
     document.getElementById('pagamento').classList.remove('hidden');
-    alert('Pedido pronto! Veja os dados do Pix abaixo 🎀');
+    alert('Pedido pronto! Role a página para ver os dados do Pix 🎀');
 }
 </script>
 
 </body>
 </html>
+
