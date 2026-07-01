@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amonelo 💖 A loginha dos seus Stickers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="estilo.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rosa: { claro: '#FFE6F7', medio: '#FF99D6', escuro: '#FF4DB3' },
+                        roxo: { claro: '#F3E5FF', medio: '#C27DFF', escuro: '#9933FF' }
+                    },
+                    fontFamily: { fofa: ['"Segoe Print"', 'cursive', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="fundo-site font-fofa min-h-screen">
+<div class="conteudo">
+
+<!-- Cabeçalho -->
+<header class="mx-3 mt-4 p-4 bg-white/95 rounded-3xl shadow-md">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+        <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-rosa-escuro to-roxo-escuro bg-clip-text text-transparent flex items-center gap-2">
+            🎀 Amonelo - A loginha dos seus Stickers
+        </h1>
+        <nav class="flex gap-4 text-sm text-roxo-escuro">
+            <a href="#inicio" class="hover:text-rosa-escuro transition">Início</a>
+            <a href="#produtos" class="hover:text-rosa-escuro transition">Stickers</a>
+            <a href="#carrinho" class="hover:text-rosa-escuro transition">Carrinho <span id="contador-carrinho" class="bg-rosa-escuro text-white px-2 rounded-full text-xs">0</span></a>
+        </nav>
+    </div>
+</header>
+
+<!-- Banner -->
+<section id="inicio" class="mx-3 my-5 p-3 bg-white/95 rounded-3xl shadow-md">
+    <img src="imagens/banner.png" alt="Amonelo Stickers" class="w-full h-auto rounded-2xl">
+    <div class="text-center mt-4">
+        <h2 class="text-2xl font-bold text-roxo-escuro">Feito com muito carinho 💖</h2>
+        <p class="text-gray-600 mt-2">Stickers personalizados e prontos para alegrar suas conversas!</p>
+    </div>
+</section>
+
+<!-- Preços -->
+<section class="mx-3 my-5 p-5 bg-white/95 rounded-3xl shadow-md text-center">
+    <h3 class="text-xl font-bold text-roxo-escuro mb-4">✨ Tabela de Preços ✨</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>3 unidades</p><p class="font-bold text-rosa-escuro">R$ 5,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>5 unidades</p><p class="font-bold text-rosa-escuro">R$ 8,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>10 unidades</p><p class="font-bold text-rosa-escuro">R$ 15,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>20 unidades</p><p class="font-bold text-rosa-escuro">R$ 25,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>30 unidades</p><p class="font-bold text-rosa-escuro">R$ 35,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>50 unidades</p><p class="font-bold text-rosa-escuro">R$ 50,00</p></div>
+    </div>
+</section>
+
+<!-- Vitrine de Produtos -->
+<section id="produtos" class="mx-3 my-5">
+    <h3 class="text-xl font-bold text-center text-roxo-escuro mb-5">💖 Nossos Stickers 💖</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Produto 1 -->
+        <div class="bg-white/95 p-4 rounded-3xl shadow-md text-center hover:scale-[1.02] transition">
+            <img src="imagens/sticker1.png" alt="Sticker Fofo" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Fofura Pura</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionarAoCarrinho('Fofura Pura', 2.00)" class="w-full bg-rosa-escuro text-white py-2 rounded-full mt-2 hover:bg-rosa-medio">Adicionar ao Carrinho 🛒</button>
+        </div>
+        <!-- Produto 2 -->
+        <div class="bg-white/95 p-4 rounded-3xl shadow-md text-center hover:scale-[1.02] transition">
+            <img src="imagens/sticker2.png" alt="Sticker Animado" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Amor e Carinho</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionarAoCarrinho('Amor e Carinho', 2.00)" class="w-full bg-rosa-escuro text-white py-2 rounded-full mt-2 hover:bg-rosa-medio">Adicionar ao Carrinho 🛒</button>
+        </div>
+        <!-- Adicione quantos quiser -->
+    </div>
+</section>
+
+<!-- Carrinho e Pagamento Pix -->
+<section id="carrinho" class="mx-3 my-5 p-5 bg-white/95 rounded-3xl shadow-md">
+    <h3 class="text-xl font-bold text-center text-roxo-escuro mb-4">🛒 Seu Carrinho</h3>
+    <div id="lista-carrinho" class="space-y-2 mb-4 text-center text-gray-600">Nenhum item adicionado ainda 💔</div>
+    <div class="text-center text-lg font-bold text-roxo-escuro mb-4">Total: R$ <span id="valor-total">0,00</span></div>
+
+    <div id="pagamento-pix" class="hidden p-4 bg-rosa-claro/50 rounded-2xl">
+        <h4 class="text-lg font-bold text-center text-roxo-escuro mb-3">💳 Pagamento via Pix</h4>
+        <p class="text-center mb-2">Chave Pix: <strong>seuemail@exemplo.com.br</strong></p>
+        <p class="text-center text-sm text-gray-600">Copie a chave, faça o pagamento e nos envie o comprovante pelo WhatsApp!</p>
+        <p class="text-center mt-3">📲 WhatsApp: <strong>(81) 99999-9999</strong></p>
+    </div>
+
+    <button onclick="finalizarCompra()" class="w-full bg-roxo-medio text-white py-3 rounded-full font-bold hover:bg-roxo-escuro">Finalizar Compra ✨</button>
+</section>
+
+<!-- Rodapé -->
+<footer class="mx-3 my-8 p-4 text-center text-roxo-escuro text-sm">
+    <p class="text-lg font-medium">💖✨ Obrigada por visitar a Amonelo ✨💖</p>
+    <p>Atendimento com carinho | 2026</p>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
