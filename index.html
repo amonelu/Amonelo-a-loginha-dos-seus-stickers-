@@ -3,312 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amonelu Stickers - Vitrine Super Fofa</title>
+    <title>Amonelu Stickers - Vitrine Fofa</title>
     <style>
-        /* Configurações Gerais - Tema Meigo e Fofo */
-        * {
+        /* Configurações Gerais e Papel de Parede Meigo */
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-
-        body {
-            /* Papel de parede estampado feito puramente em código CSS */
-            background-color: #ffeef4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #6c5b7b;
+            position: relative;
+            
+            /* COMANDOS DO PAPEL DE PAREDE: Mistura de degradê com corações e poás fofos */
+            background-color: #ffe5ec;
             background-image: 
-                radial-gradient(#ffc2d4 20%, transparent 20%),
-                radial-gradient(#ffc2d4 20%, transparent 20%);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-            color: #5c4a52;
-            padding-bottom: 60px;
+                radial-gradient(#ffb3c6 15%, transparent 16%),
+                radial-gradient(#ffc2d1 15%, transparent 16%),
+                linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.4)),
+                linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.4));
+            background-size: 60px 60px, 60px 60px, 120px 120px, 120px 120px;
+            background-position: 0 0, 30px 30px, 0 0, 60px 60px;
+            background-attachment: fixed;
         }
 
-        /* Camada suave para dar leveza ao fundo */
-        .wrapper {
-            background: rgba(255, 255, 255, 0.4);
-            min-height: 100vh;
+        .brilhos-fundo {
+            position: fixed;
+            top: 15px;
+            left: 0;
             width: 100%;
-            padding: 15px;
+            font-size: 20px;
+            letter-spacing: 35px;
+            opacity: 0.3;
+            text-align: center;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        /* Container do Banner Principal (Chama a imagem 1000083078.png) */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .banner-container {
             width: 100%;
-            max-width: 1000px;
-            margin: 10px auto 25px auto;
-            text-align: center;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.25);
+            margin-bottom: 40px;
+            border: 6px solid #fff;
+            background-color: #fff;
+            transition: transform 0.3s ease;
         }
 
         .banner-img {
             width: 100%;
             height: auto;
-            border-radius: 24px;
-            border: 6px solid #fff;
-            box-shadow: 0 8px 24px rgba(255, 105, 180, 0.25);
             display: block;
         }
 
-        /* Caixa de Boas-Vindas Meiga */
-        .welcome-box {
+        .vitrine-title {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto 35px auto;
-            padding: 20px;
-            border-radius: 20px;
-            border: 3px dashed #ff9ebb;
-            box-shadow: 0 4px 15px rgba(255, 158, 187, 0.2);
+            font-size: 2.2rem;
+            color: #fb6f92;
+            text-shadow: 3px 3px 0px #fff;
+            margin-bottom: 35px;
+            font-weight: bold;
         }
 
-        .welcome-box h1 {
-            color: #ff5287;
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        .welcome-box p {
-            color: #7d636f;
-            font-size: 1rem;
-        }
-
-        /* Container das Vitrines */
-        .vitrine-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .vitrine-header {
-            text-align: center;
-            color: #ff5287;
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
-        }
-
-        /* Grid das Vitrines */
-        .grid-vitrine {
+        .vitrine-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
             padding: 10px;
         }
 
-        /* Card de Produto Lindo e Charmoso */
-        .card-sticker {
-            background: #ffffff;
-            border: 3px solid #ffccd9;
+        .produto-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(5px);
+            border: 3px solid #fff;
             border-radius: 24px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            box-shadow: 0 6px 18px rgba(255, 182, 193, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
             position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .card-sticker:hover {
-            transform: translateY(-6px);
-            border-color: #ff8fa9;
-        }
-
-        /* Estampado de coração decorativo discreto no canto de cada card */
-        .card-sticker::before {
-            content: '♡';
+        .badge-fofo {
             position: absolute;
-            top: 10px;
+            top: -12px;
             right: 15px;
-            font-size: 1.4rem;
-            color: #ff8fa9;
+            background: linear-gradient(135deg, #ff8fab 0%, #ff5c8a 100%);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: bold;
         }
 
-        /* Janela de Preview do Sticker com Emojis Fofos */
-        .sticker-preview {
-            width: 100%;
-            height: 180px;
-            background-color: #fff0f3;
-            border-radius: 18px;
-            border: 2px dashed #ffb3c6;
+        .produto-img-placeholder {
+            width: 130px;
+            height: 130px;
+            background: #fff0f3;
+            border-radius: 50%;
+            margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            color: #ff8fa9;
-            font-size: 2.5rem;
-            position: relative;
+            font-size: 3.5rem;
+            border: 3px dashed #ffc2d1;
         }
 
-        .sticker-preview span {
-            font-size: 0.9rem;
-            position: absolute;
-            bottom: 15px;
-            background: #fff;
-            padding: 2px 10px;
-            border-radius: 10px;
-            border: 1px solid #ffccd9;
-            color: #ff5287;
-        }
-
-        .card-sticker h3 {
-            color: #ff5287;
+        .produto-nome {
             font-size: 1.25rem;
-            margin-bottom: 8px;
+            color: #ff5c8a;
+            margin: 10px 0 5px;
+            font-weight: bold;
         }
 
-        .card-sticker p {
-            color: #8a737d;
+        .produto-desc {
             font-size: 0.9rem;
-            line-height: 1.4;
-            margin-bottom: 18px;
+            color: #857095;
+            margin-bottom: 20px;
             height: 40px;
+            overflow: hidden;
         }
 
-        /* Botão de Pedido com degradê meigo */
-        .btn-pedido {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            background: linear-gradient(135deg, #ff7597, #ff5287);
-            color: #fff;
-            padding: 12px;
-            border-radius: 50px;
+        .btn-comprar {
+            background: linear-gradient(135deg, #ff8fab 0%, #ff5c8a 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 5px 12px rgba(255, 92, 138, 0.35);
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(255, 82, 135, 0.3);
-            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
         }
 
-        .btn-pedido:hover {
-            background: linear-gradient(135deg, #ff5287, #ff3370);
-            transform: scale(1.02);
-        }
-
-        /* Selos de Benefícios iguaizinhos aos do rodapé do banner */
-        .beneficios {
-            max-width: 800px;
-            margin: 40px auto 10px auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .selo {
-            background: #fff;
-            border: 2px solid #ffccd9;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: #ff5287;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-        }
-
-        /* Rodapé delicado */
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #ff7597;
-            border-top: 2px dashed #ffccd9;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.95rem;
+            color: #ff5c8a;
+            font-weight: 500;
+            border-top: 3px dashed #ffc2d1;
+            background: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="brilhos-fundo">✨ 💖 ✨ 🌸 ✨ 💖 ✨</div>
+
+    <div class="container">
         
-        <!-- Topo com o Banner lindo fornecido -->
-        <header class="banner-container">
-            <img src="1000083078.png" alt="Amonelu Stickers - Banner" class="banner-img">
-        </header>
+        <div class="banner-container">
+            <!-- Puxando o seu arquivo igualzinho ao print -->
+            <img src="banner.png" alt="Amonelu Stickers Banner" class="banner-img">
+        </div>
 
-        <!-- Mensagem de Boas-Vindas -->
-        <section class="welcome-box">
-            <h1>♡ Amonelu Stickers ♡</h1>
-            <p>Stickers animados 100% personalizados com todo o amor do mundo para o seu WhatsApp e Instagram! Escolha o seu pacotinho abaixo ✨</p>
-        </section>
+        <h2 class="vitrine-title">✨ Conheça Nossos Stickers Mágicos ✨</h2>
 
-        <!-- Seção da Vitrine de Modelos -->
-        <main class="vitrine-container">
-            <h2 class="vitrine-header">✨ Nossas Vitrines de Mimos ✨</h2>
+        <div class="vitrine-grid">
             
-            <div class="grid-vitrine">
-                
-                <!-- Card 1: Pack Tradicional -->
-                <div class="card-sticker">
-                    <div class="sticker-preview">
-                        ✨👩‍🦰✨
-                        <span>Pack Bonequinha</span>
-                    </div>
-                    <h3>Pack Amonelu Clássico</h3>
-                    <p>10 Stickers animados baseados em você, suas roupas e acessórios favoritos!</p>
-                    <a href="https://wa.me/5581999999999?text=Oi!+Quero+encomendar+o+Pack+Amonelu+Clássico" target="_blank" class="btn-pedido">
-                        Pedir com Amor ♡
-                    </a>
-                </div>
-
-                <!-- Card 2: Pack Pet -->
-                <div class="card-sticker">
-                    <div class="sticker-preview">
-                        🐶💖🐾
-                        <span>Pack Mimo Pet</span>
-                    </div>
-                    <h3>Stickers do seu Pet</h3>
-                    <p>Transforme seu cãozinho, gatinho ou bichinho de estimação em figurinhas fofas.</p>
-                    <a href="https://wa.me/5581999999999?text=Oi!+Quero+encomendar+o+Pack+Stickers+do+meu+Pet" target="_blank" class="btn-pedido">
-                        Pedir com Amor ♡
-                    </a>
-                </div>
-
-                <!-- Card 3: Pack Casal / Amigas -->
-                <div class="card-sticker">
-                    <div class="sticker-preview">
-                        👭💞✨
-                        <span>Pack Duplo</span>
-                    </div>
-                    <h3>Pack Amigas ou Casal</h3>
-                    <p>Figurinhas personalizadas com duas pessoas juntas. Perfeito para presentear!</p>
-                    <a href="https://wa.me/5581999999999?text=Oi!+Quero+encomendar+o+Pack+Amigas+ou+Casal" target="_blank" class="btn-pedido">
-                        Pedir com Amor ♡
-                    </a>
-                </div>
-
-                <!-- Card 4: Pack Identidade Insta -->
-                <div class="card-sticker">
-                    <div class="sticker-preview">
-                        📸💝🎨
-                        <span>Pack Stories</span>
-                    </div>
-                    <h3>Kit Vitrine & Instagram</h3>
-                    <p>Elementos e figurinhas exclusivas para deixar os stories do seu negócio lindos.</p>
-                    <a href="https://wa.me/5581999999999?text=Oi!+Quero+encomendar+o+Kit+Vitrine+Instagram" target="_blank" class="btn-pedido">
-                        Pedir com Amor ♡
-                    </a>
-                </div>
-
+            <div class="produto-card">
+                <span class="badge-fofo">Sucesso!</span>
+                <div class="produto-img-placeholder">🥰</div>
+                <div class="produto-nome">Pack Stickers Cute</div>
+                <div class="produto-desc">Stickers fofinhos animados para derreter corações no WhatsApp.</div>
+                <button class="btn-comprar">Eu Quero! 💕</button>
             </div>
-        </main>
 
-        <!-- Selos extras baseados nos textos de qualidade do próprio banner -->
-        <section class="beneficios">
-            <div class="selo">💗 Alta Qualidade</div>
-            <div class="selo">⚡ Entrega Rápida</div>
-            <div class="selo">💝 Feito com Amor</div>
-        </section>
+            <div class="produto-card">
+                <span class="badge-fofo">Novo</span>
+                <div class="produto-img-placeholder">🐶</div>
+                <div class="produto-nome">Pet Amonelu Pack</div>
+                <div class="produto-desc">Inspirado no doguinho mais lindo do nosso banner!</div>
+                <button class="btn-comprar">Eu Quero! 💕</button>
+            </div>
 
-        <!-- Rodapé -->
-        <footer>
-            <p>Amonelu Stickers • Feito todinho com código e muito amor ♡</p>
-        </footer>
+            <div class="produto-card">
+                <span class="badge-fofo">Exclusivo</span>
+                <div class="produto-img-placeholder">🎀</div>
+                <div class="produto-nome">Instagram Glam</div>
+                <div class="produto-desc">Stickers personalizados para bombar os seus stories.</div>
+                <button class="btn-comprar">Eu Quero! 💕</button>
+            </div>
+
+            <div class="produto-card">
+                <span class="badge-fofo">Love</span>
+                <div class="produto-img-placeholder">💖</div>
+                <div class="produto-nome">Pack Feito com Amor</div>
+                <div class="produto-desc">100% personalizado com os temas mais doces e meigos.</div>
+                <button class="btn-comprar">Eu Quero! 💕</button>
+            </div>
+
+        </div>
 
     </div>
+
+    <footer>
+        <p>Amonelu Stickers © 2026 - Feito com amor e doçura ✨</p>
+    </footer>
 
 </body>
 </html>
