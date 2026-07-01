@@ -3,211 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amonelu Stickers - Vitrine Fofa</title>
-    <style>
-        /* Configurações Gerais e Papel de Parede Meigo */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #6c5b7b;
-            position: relative;
-            
-            /* COMANDOS DO PAPEL DE PAREDE: Mistura de degradê com corações e poás fofos */
-            background-color: #ffe5ec;
-            background-image: 
-                radial-gradient(#ffb3c6 15%, transparent 16%),
-                radial-gradient(#ffc2d1 15%, transparent 16%),
-                linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.4)),
-                linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.4));
-            background-size: 60px 60px, 60px 60px, 120px 120px, 120px 120px;
-            background-position: 0 0, 30px 30px, 0 0, 60px 60px;
-            background-attachment: fixed;
-        }
-
-        .brilhos-fundo {
-            position: fixed;
-            top: 15px;
-            left: 0;
-            width: 100%;
-            font-size: 20px;
-            letter-spacing: 35px;
-            opacity: 0.3;
-            text-align: center;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .banner-container {
-            width: 100%;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.25);
-            margin-bottom: 40px;
-            border: 6px solid #fff;
-            background-color: #fff;
-            transition: transform 0.3s ease;
-        }
-
-        .banner-img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .vitrine-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: #fb6f92;
-            text-shadow: 3px 3px 0px #fff;
-            margin-bottom: 35px;
-            font-weight: bold;
-        }
-
-        .vitrine-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 10px;
-        }
-
-        .produto-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(5px);
-            border: 3px solid #fff;
-            border-radius: 24px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
-            position: relative;
-        }
-
-        .badge-fofo {
-            position: absolute;
-            top: -12px;
-            right: 15px;
-            background: linear-gradient(135deg, #ff8fab 0%, #ff5c8a 100%);
-            color: white;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-
-        .produto-img-placeholder {
-            width: 130px;
-            height: 130px;
-            background: #fff0f3;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            border: 3px dashed #ffc2d1;
-        }
-
-        .produto-nome {
-            font-size: 1.25rem;
-            color: #ff5c8a;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-
-        .produto-desc {
-            font-size: 0.9rem;
-            color: #857095;
-            margin-bottom: 20px;
-            height: 40px;
-            overflow: hidden;
-        }
-
-        .btn-comprar {
-            background: linear-gradient(135deg, #ff8fab 0%, #ff5c8a 100%);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: bold;
-            box-shadow: 0 5px 12px rgba(255, 92, 138, 0.35);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            font-size: 0.95rem;
-            color: #ff5c8a;
-            font-weight: 500;
-            border-top: 3px dashed #ffc2d1;
-            background: rgba(255, 255, 255, 0.5);
-        }
-    </style>
+    <title>Amonelu Stickers</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
-    <div class="brilhos-fundo">✨ 💖 ✨ 🌸 ✨ 💖 ✨</div>
+<!-- Menu superior -->
+<nav class="menu-topo">
+    <div class="logo">💖 Amonelu Stickers 💖</div>
+    <div class="links-menu">
+        <a href="#">Início</a>
+        <a href="#">Catálogo</a>
+        <a href="#">Favoritos</a>
+        <a href="#">Carrinho <span>0</span></a>
+    </div>
+    <div class="busca">
+        <input type="text" placeholder="Procurar stickers...">
+        <button>🔍</button>
+    </div>
+</nav>
 
-    <div class="container">
-        
-        <div class="banner-container">
-            <!-- Puxando o seu arquivo igualzinho ao print -->
-            <img src="banner.png" alt="Amonelu Stickers Banner" class="banner-img">
+<!-- Cabeçalho principal -->
+<header class="cabecalho">
+    <h1>AMONELU STICKERS</h1>
+    <p>Stickers animados personalizados para WhatsApp e Instagram ✨</p>
+    <div class="vantagens">
+        <span>🌸 Alta qualidade</span>
+        <span>⚡ Entrega rápida</span>
+        <span>💖 Feito com amor</span>
+    </div>
+    <button class="botao-destaque">100% PERSONALIZADO</button>
+</header>
+
+<!-- Seção de planos personalizados -->
+<section class="planos-personalizados">
+    <h2>✨ Stickers Personalizados com sua foto ✨</h2>
+    <p>Envie sua foto, escolha a quantidade e receba stickers únicos!</p>
+    <button class="botao-personalizar">Personalizar agora 🎀</button>
+
+    <div class="grade-planos">
+        <div class="plano">3 stickers<br><strong>R$ 5,00</strong></div>
+        <div class="plano">5 stickers<br><strong>R$ 8,00</strong></div>
+        <div class="plano">10 stickers<br><strong>R$ 15,00</strong></div>
+        <div class="plano">20 stickers<br><strong>R$ 25,00</strong></div>
+        <div class="plano">30 stickers<br><strong>R$ 35,00</strong></div>
+        <div class="plano">50 stickers<br><strong>R$ 55,00</strong></div>
+    </div>
+</section>
+
+<!-- Categorias -->
+<section class="categorias">
+    <button class="cat">💖 BTS</button>
+    <button class="cat">🥰 Engraçados</button>
+    <button class="cat">🐶 Cachorros</button>
+    <button class="cat">🎀 Personalizados</button>
+    <button class="cat">🎵 Música</button>
+    <button class="cat">🎬 Filmes e Séries</button>
+    <button class="cat">📅 Datas</button>
+    <button class="cat ativo">✨ Animados</button>
+</section>
+
+<!-- Vitrine de Stickers -->
+<section class="vitrine">
+    <h2>💖 Escolha seus stickers 💖</h2>
+    <div class="grade-stickers">
+
+        <!-- Sticker 1 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/cachorro.png" alt="Acorda, Preguiça!">
+            <h4>Acorda, Preguiça!</h4>
+            <p class="preco">R$ 2,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
         </div>
 
-        <h2 class="vitrine-title">✨ Conheça Nossos Stickers Mágicos ✨</h2>
+        <!-- Sticker 2 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/panda.png" alt="Hora do Bubble Tea">
+            <h4>Hora do Bubble Tea</h4>
+            <p class="preco">R$ 2,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
+        </div>
 
-        <div class="vitrine-grid">
-            
-            <div class="produto-card">
-                <span class="badge-fofo">Sucesso!</span>
-                <div class="produto-img-placeholder">🥰</div>
-                <div class="produto-nome">Pack Stickers Cute</div>
-                <div class="produto-desc">Stickers fofinhos animados para derreter corações no WhatsApp.</div>
-                <button class="btn-comprar">Eu Quero! 💕</button>
-            </div>
+        <!-- Sticker 3 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/menina.png" alt="Feliz e Confiante">
+            <h4>Feliz e Confiante</h4>
+            <p class="preco">R$ 2,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
+        </div>
 
-            <div class="produto-card">
-                <span class="badge-fofo">Novo</span>
-                <div class="produto-img-placeholder">🐶</div>
-                <div class="produto-nome">Pet Amonelu Pack</div>
-                <div class="produto-desc">Inspirado no doguinho mais lindo do nosso banner!</div>
-                <button class="btn-comprar">Eu Quero! 💕</button>
-            </div>
+        <!-- Sticker 4 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/gatinho.png" alt="Fofura Pura">
+            <h4>Fofura Pura</h4>
+            <p class="preco">R$ 2,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
+        </div>
 
-            <div class="produto-card">
-                <span class="badge-fofo">Exclusivo</span>
-                <div class="produto-img-placeholder">🎀</div>
-                <div class="produto-nome">Instagram Glam</div>
-                <div class="produto-desc">Stickers personalizados para bombar os seus stories.</div>
-                <button class="btn-comprar">Eu Quero! 💕</button>
-            </div>
+        <!-- Sticker 5 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/stitch.png" alt="Stitch Fofo">
+            <h4>Stitch Fofo</h4>
+            <p class="preco">R$ 2,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
+        </div>
 
-            <div class="produto-card">
-                <span class="badge-fofo">Love</span>
-                <div class="produto-img-placeholder">💖</div>
-                <div class="produto-nome">Pack Feito com Amor</div>
-                <div class="produto-desc">100% personalizado com os temas mais doces e meigos.</div>
-                <button class="btn-comprar">Eu Quero! 💕</button>
-            </div>
+        <!-- Sticker 6 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/urso.png" alt="Amor de Urso">
+            <h4>Amor de Urso</h4>
+            <p class="preco">R$ 2,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
+        </div>
 
+        <!-- Sticker 7 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/bts.png" alt="BTS Love">
+            <h4>BTS Love</h4>
+            <p class="preco">R$ 3,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
+        </div>
+
+        <!-- Sticker 8 -->
+        <div class="card-sticker">
+            <span class="coracao">🤍</span>
+            <img src="imagens/jungkook.png" alt="Jungkook">
+            <h4>Jungkook</h4>
+            <p class="preco">R$ 3,00</p>
+            <button class="botao-comprar">🛒 Comprar</button>
         </div>
 
     </div>
 
-    <footer>
-        <p>Amonelu Stickers © 2026 - Feito com amor e doçura ✨</p>
-    </footer>
+    <button class="ver-mais">Ver mais stickers 📦</button>
+</section>
 
+<!-- Rodapé -->
+<footer class="rodape">
+    <p>💖 Obrigada por visitar a Amonelu Stickers 💖</p>
+    <p>Atendimento com carinho | 2026</p>
+    <p>📲 WhatsApp: (81) 99999-9999</p>
+</footer>
+
+<script src="Script.js"></script>
 </body>
 </html>
 
