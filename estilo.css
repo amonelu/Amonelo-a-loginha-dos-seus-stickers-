@@ -1,0 +1,26 @@
+/* Fundo fofo e meigo */
+.fundo-site {
+    background: linear-gradient(180deg, #FFE6F7 0%, #F0D9FF 100%);
+    position: relative;
+}
+
+/* Papel de parede com desenhos suaves */
+.fundo-site::before {
+    content: "Amonelo 💖 🦋";
+    position: fixed;
+    inset: 0;
+    font-size: 22px;
+    color: rgba(255, 77, 179, 0.07);
+    font-family: "Segoe Print", cursive;
+    letter-spacing: 8px;
+    line-height: 70px;
+    transform: rotate(-3deg);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.conteudo {
+    position: relative;
+    z-index: 1;
+}
+
