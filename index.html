@@ -3,156 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amonelu Stickers</title>
-    <link rel="stylesheet" href="Style.css">
+    <title>Amonelu 💖 A lojinha dos seus Stickers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rosa: { claro: '#FFE6F7', medio: '#FF99D6', escuro: '#FF4DB3' },
+                        roxo: { claro: '#F3E5FF', medio: '#C27DFF', escuro: '#9933FF' }
+                    },
+                    fontFamily: { fofa: ['"Segoe Print"', 'cursive', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fundo-site {
+            background: linear-gradient(180deg, #FFE6F7 0%, #F0D9FF 100%);
+            position: relative;
+            min-height: 100vh;
+        }
+        .fundo-site::before {
+            content: "Amonelu 💖 🦋";
+            position: fixed; inset: 0;
+            font-size: 22px; color: rgba(255, 77, 179, 0.07);
+            font-family: "Segoe Print", cursive;
+            letter-spacing: 8px; line-height: 70px;
+            transform: rotate(-3deg); z-index: 0; pointer-events: none;
+        }
+        .conteudo { position: relative; z-index: 1; }
+        .borda-fofa { border-radius: 1.8rem; }
+        .sombra-suave { box-shadow: 0 4px 12px rgba(153, 51, 255, 0.15); }
+    </style>
 </head>
-<body>
+<body class="fundo-site font-fofa">
+<div class="conteudo">
 
-<!-- Menu superior -->
-<nav class="menu-topo">
-    <div class="logo">💖 Amonelu Stickers 💖</div>
-    <div class="links-menu">
-        <a href="#">Início</a>
-        <a href="#">Catálogo</a>
-        <a href="#">Favoritos</a>
-        <a href="#">Carrinho <span>0</span></a>
+<!-- Cabeçalho -->
+<header class="mx-3 mt-5 p-4 bg-white/95 borda-fofa sombra-suave">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+        <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-rosa-escuro to-roxo-escuro bg-clip-text text-transparent flex items-center gap-2">💖 Amonelu Stickers</h1>
+        <nav class="flex gap-4 text-sm text-roxo-escuro">
+            <a href="#inicio" class="hover:text-rosa-escuro transition">Início</a>
+            <a href="#produtos" class="hover:text-rosa-escuro transition">Stickers</a>
+            <a href="#carrinho" class="hover:text-rosa-escuro transition">Carrinho <span id="contador-carrinho" class="bg-rosa-escuro text-white px-2 rounded-full text-xs">0</span></a>
+        </nav>
     </div>
-    <div class="busca">
-        <input type="text" placeholder="Procurar stickers...">
-        <button>🔍</button>
-    </div>
-</nav>
-
-<!-- Cabeçalho principal -->
-<header class="cabecalho">
-    <h1>AMONELU STICKERS</h1>
-    <p>Stickers animados personalizados para WhatsApp e Instagram ✨</p>
-    <div class="vantagens">
-        <span>🌸 Alta qualidade</span>
-        <span>⚡ Entrega rápida</span>
-        <span>💖 Feito com amor</span>
-    </div>
-    <button class="botao-destaque">100% PERSONALIZADO</button>
 </header>
 
-<!-- Seção de planos personalizados -->
-<section class="planos-personalizados">
-    <h2>✨ Stickers Personalizados com sua foto ✨</h2>
-    <p>Envie sua foto, escolha a quantidade e receba stickers únicos!</p>
-    <button class="botao-personalizar">Personalizar agora 🎀</button>
+<!-- Banner -->
+<section id="inicio" class="mx-3 my-6 p-3 bg-white/95 borda-fofa sombra-suave">
+    <img src="imagens/banner.png" alt="Amonelu Stickers" class="w-full h-auto rounded-xl">
+</section>
 
-    <div class="grade-planos">
-        <div class="plano">3 stickers<br><strong>R$ 5,00</strong></div>
-        <div class="plano">5 stickers<br><strong>R$ 8,00</strong></div>
-        <div class="plano">10 stickers<br><strong>R$ 15,00</strong></div>
-        <div class="plano">20 stickers<br><strong>R$ 25,00</strong></div>
-        <div class="plano">30 stickers<br><strong>R$ 35,00</strong></div>
-        <div class="plano">50 stickers<br><strong>R$ 55,00</strong></div>
+<!-- Preços -->
+<section class="mx-3 my-6 p-5 bg-white/95 borda-fofa sombra-suave text-center">
+    <h3 class="text-xl font-bold text-roxo-escuro mb-4">✨ Preços ✨</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>3 unidades</p><p class="font-bold text-rosa-escuro">R$ 5,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>5 unidades</p><p class="font-bold text-rosa-escuro">R$ 8,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>10 unidades</p><p class="font-bold text-rosa-escuro">R$ 15,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>20 unidades</p><p class="font-bold text-rosa-escuro">R$ 25,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>30 unidades</p><p class="font-bold text-rosa-escuro">R$ 35,00</p></div>
+        <div class="bg-rosa-claro/70 p-3 rounded-full"><p>50 unidades</p><p class="font-bold text-rosa-escuro">R$ 55,00</p></div>
     </div>
 </section>
 
-<!-- Categorias -->
-<section class="categorias">
-    <button class="cat">💖 BTS</button>
-    <button class="cat">🥰 Engraçados</button>
-    <button class="cat">🐶 Cachorros</button>
-    <button class="cat">🎀 Personalizados</button>
-    <button class="cat">🎵 Música</button>
-    <button class="cat">🎬 Filmes e Séries</button>
-    <button class="cat">📅 Datas</button>
-    <button class="cat ativo">✨ Animados</button>
-</section>
+<!-- Vitrine com os nomes exatos -->
+<section id="produtos" class="mx-3 my-6">
+    <h3 class="text-xl font-bold text-center text-roxo-escuro mb-5">💖 Nossos Stickers 💖</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 
-<!-- Vitrine de Stickers -->
-<section class="vitrine">
-    <h2>💖 Escolha seus stickers 💖</h2>
-    <div class="grade-stickers">
-
-        <!-- Sticker 1 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/cachorro.png" alt="Acorda, Preguiça!">
-            <h4>Acorda, Preguiça!</h4>
-            <p class="preco">R$ 2,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers1.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 1</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 1', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
-        <!-- Sticker 2 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/panda.png" alt="Hora do Bubble Tea">
-            <h4>Hora do Bubble Tea</h4>
-            <p class="preco">R$ 2,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers2.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 2</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 2', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
-        <!-- Sticker 3 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/menina.png" alt="Feliz e Confiante">
-            <h4>Feliz e Confiante</h4>
-            <p class="preco">R$ 2,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers3.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 3</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 3', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
-        <!-- Sticker 4 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/gatinho.png" alt="Fofura Pura">
-            <h4>Fofura Pura</h4>
-            <p class="preco">R$ 2,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers4.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 4</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 4', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
-        <!-- Sticker 5 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/stitch.png" alt="Stitch Fofo">
-            <h4>Stitch Fofo</h4>
-            <p class="preco">R$ 2,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers5.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 5</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 5', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
-        <!-- Sticker 6 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/urso.png" alt="Amor de Urso">
-            <h4>Amor de Urso</h4>
-            <p class="preco">R$ 2,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers6.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 6</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 6', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
-        <!-- Sticker 7 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/bts.png" alt="BTS Love">
-            <h4>BTS Love</h4>
-            <p class="preco">R$ 3,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers7.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 7</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 7', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
-        <!-- Sticker 8 -->
-        <div class="card-sticker">
-            <span class="coracao">🤍</span>
-            <img src="imagens/jungkook.png" alt="Jungkook">
-            <h4>Jungkook</h4>
-            <p class="preco">R$ 3,00</p>
-            <button class="botao-comprar">🛒 Comprar</button>
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers8.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 8</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 8', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
+        </div>
+
+        <div class="bg-white/95 p-3 borda-fofa sombra-suave text-center hover:scale-[1.02] transition">
+            <img src="imagens/stickers9.png" class="w-full h-40 object-contain bg-rosa-claro/40 rounded-xl p-2">
+            <h4 class="text-roxo-escuro my-2">Modelo 9</h4>
+            <p class="font-bold text-rosa-escuro">R$ 2,00</p>
+            <button onclick="adicionar('Modelo 9', 2)" class="w-full bg-rosa-escuro text-white py-1.5 rounded-full">Adicionar 🛒</button>
         </div>
 
     </div>
-
-    <button class="ver-mais">Ver mais stickers 📦</button>
 </section>
 
-<!-- Rodapé -->
-<footer class="rodape">
-    <p>💖 Obrigada por visitar a Amonelu Stickers 💖</p>
-    <p>Atendimento com carinho | 2026</p>
-    <p>📲 WhatsApp: (81) 99999-9999</p>
+<!-- Carrinho e Pagamento Pix -->
+<section id="carrinho" class="mx-3 my-6 p-5 bg-white/95 borda-fofa sombra-suave">
+    <h3 class="text-xl font-bold text-center text-roxo-escuro mb-4">🛒 Seu Carrinho</h3>
+    <div id="lista-carrinho" class="space-y-2 mb-4 text-center text-gray-600">Nenhum item ainda 💖</div>
+    <div class="text-center text-lg font-bold text-roxo-escuro mb-4">Total: R$ <span id="valor-total">0,00</span></div>
+
+    <div id="pagamento" class="hidden p-4 bg-rosa-claro/50 rounded-2xl">
+        <h4 class="text-lg font-bold text-center text-roxo-escuro mb-3">💳 Pagamento via Pix</h4>
+        <p class="text-center mb-2">Chave Pix: <strong>coloque_sua_chave_aqui</strong></p>
+        <p class="text-center text-sm">Envie o comprovante para o WhatsApp: <strong>(81) 9XXXX-XXXX</strong></p>
+    </div>
+
+    <button onclick="finalizar()" class="w-full bg-roxo-medio text-white py-3 rounded-full font-bold hover:bg-roxo-escuro">Finalizar Compra ✨</button>
+</section>
+
+<footer class="mx-3 my-8 p-4 text-center text-roxo-escuro text-sm">
+    <p class="text-lg">💖✨ Feito com muito carinho | Amonelu Stickers ✨💖</p>
 </footer>
 
-<script src="Script.js"></script>
+<script>
+let carrinho = [];
+function adicionar(nome, preco) {
+    carrinho.push({nome, preco});
+    atualizar();
+}
+function atualizar() {
+    const lista = document.getElementById("lista-carrinho");
+    const total = document.getElementById("valor-total");
+    const contador = document.getElementById("contador-carrinho");
+    if(carrinho.length === 0) {
+        lista.innerHTML = "Nenhum item ainda 💖";
+        total.textContent = "0,00";
+    } else {
+        lista.innerHTML = carrinho.map(i => `<div class="flex justify-between p-2 bg-white/70 rounded-xl">${i.nome} <span>R$ ${i.preco.toFixed(2)}</span></div>`).join("");
+        const soma = carrinho.reduce((soma, i) => soma + i.preco, 0);
+        total.textContent = soma.toFixed(2);
+    }
+    contador.textContent = carrinho.length;
+}
+function finalizar() {
+    if(carrinho.length === 0) return alert("Adicione um sticker primeiro! 💖");
+    document.getElementById("pagamento").classList.remove("hidden");
+    alert("Pedido pronto! Veja os dados do Pix abaixo 🎀");
+}
+</script>
+
+</div>
 </body>
 </html>
-
