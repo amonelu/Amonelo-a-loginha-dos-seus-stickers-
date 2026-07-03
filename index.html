@@ -163,7 +163,7 @@
     <script>
         let carrinho = [];
         let lista = [];
-        const CHAVE_PIX = "amonelustickers@gmail.com"; // ← AQUI DEPOIS VOCÊ COLOCA A SUA
+        const CHAVE_PIX = "amonelustickers@gmail.com";
 
         function abrirForm() { document.getElementById('modalForm').classList.remove('hidden'); }
         function fecharForm() { document.getElementById('modalForm').classList.add('hidden'); }
@@ -229,5 +229,52 @@
             fecharPag();
             let msg = '✅ Pagamento confirmado! 🎉\n\n';
             carrinho.forEach(item => {
-                if(item.tipo === '
+                if(item.tipo === 'personalizado') {
+                    msg += `📌 Pedido recebido! Entrarei em contato pelo WhatsApp ${item.whats} em até 15 minutos com os arquivos prontos!\n\n`;
+                } else if(item.tipo === 'unidade') {
+                    msg += `🔽 ${item.nome}:\n${item.img}\n\n`;
+                } else if(item.tipo === 'pacote') {
+                    lista.forEach(s => msg += `🔽 ${s.nome}:\n${s.img}\n`);
+                }
+            });
+            alert(msg);
+            carrinho = [];
+            atualizarCarrinho();
+        }
+
+        document.getElementById('formCadastro').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const val = parseFloat(document.getElementById('valor').value);
+            const arq = document.getElementById('imagem').files[0];
+            const leitor = new FileReader();
+            leitor.onload = function(e) {
+                lista.push({ nome, valor: val, img: e.target.result });
+                atualizarVitrine();
+                this.reset();
+                alert('Cadastrado!');
+            };
+            leitor.readAsDataURL(arq);
+        });
+
+        function atualizarVitrine() {
+            const div = document.getElementById('listaStickers');
+            div.innerHTML = '';
+            lista.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl shadow p-3 text-center animar';
+                card.innerHTML = `
+                    <div class="h-28 bg-gray-100 rounded mb-2 flex items-center justify-center">
+                        <img src="${s.img}" alt="${s.nome}" class="max-h-full max-w-full">
+                    </div>
+                    <p class="font-medium">${s.nome}</p>
+                    <p class="text-amonelu-coracao font-bold">R$ ${s.valor.toFixed(2).replace('.', ',')}</p>
+                    <button onclick="addItem('${s.nome}', ${s.valor}, '${s.img}')" class="mt-1 text-sm bg-amonelu-coracao text-white px-2 py-1 rounded">Adicionar</button>
+                `;
+                div.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
 
