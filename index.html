@@ -3,310 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amonelu Stickers 💖</title>
+    <title>Amonelu - Stickers</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        rosa: { claro: '#FFE6F7', medio: '#FF85C9', escuro: '#FF47AF' },
-                        roxo: { claro: '#F3E5FF', medio: '#C88BFF', escuro: '#9A4DFF' }
+                        amonelu: { rosa: '#FFE6F2', roxo: '#D896F0', rosaEscuro: '#FF87C0', roxoEscuro: '#B86ED9', coracao: '#FF5E9E' }
                     },
-                    fontFamily: { fofa: ['"Segoe Print"', 'cursive', 'sans-serif'] }
+                    fontFamily: { amor: ['Pacifico', 'cursive'], principal: ['Arial', 'sans-serif'] }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background: linear-gradient(180deg, #FFE6F7 0%, #F3E5FF 100%);
-            min-height: 100vh;
-            font-family: 'Segoe Print', cursive;
-        }
-        .banner-principal {
-            background: #fff;
-            border-radius: 2rem;
-            box-shadow: 0 4px 12px rgba(154, 77, 255, 0.15);
-            overflow: hidden;
-        }
-        .card-sticker {
-            background: #fff;
-            border-radius: 1.5rem;
-            box-shadow: 0 3px 10px rgba(255, 71, 175, 0.12);
-            transition: transform 0.2s ease;
-        }
-        .card-sticker:hover {
-            transform: scale(1.02);
-        }
-        .btn-rosa {
-            background: #FF47AF;
-            color: white;
-            border-radius: 9999px;
-            transition: background 0.2s;
-        }
-        .btn-rosa:hover {
-            background: #E03A98;
-        }
-        .btn-roxo {
-            background: #9A4DFF;
-            color: white;
-            border-radius: 9999px;
-        }
-        .btn-roxo:hover {
-            background: #8238E0;
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-amor { font-family: 'Pacifico', cursive; }
+            .sombra-texto { text-shadow: 0 0 8px rgba(255, 94, 158, 0.6); }
+            .bg-padrao { background: linear-gradient(180deg, #FFE6F2 0%, #F8DFF7 100%); }
+            .animar { transition: all 0.3s ease; }
+            .animar:hover { transform: scale(1.03); }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-padrao font-principal min-h-screen">
 
-<!-- Cabeçalho -->
-<header class="bg-white/90 shadow-md rounded-b-3xl px-4 py-3 mb-4">
-    <div class="flex justify-between items-center">
-        <h1 class="text-lg md:text-xl font-bold bg-gradient-to-r from-rosa-escuro to-roxo-escuro bg-clip-text text-transparent">💖 Amonelu Stickers</h1>
-        <div class="flex gap-3 text-sm">
-            <a href="#inicio" class="text-roxo-escuro hover:text-rosa-escuro">Início</a>
-            <a href="#produtos" class="text-roxo-escuro hover:text-rosa-escuro">Stickers</a>
-            <a href="#carrinho" class="text-roxo-escuro hover:text-rosa-escuro">Carrinho <span id="contador" class="bg-rosa-escuro text-white px-2 rounded-full text-xs">0</span></a>
+    <header class="bg-white shadow-md px-4 py-3 flex justify-between items-center">
+        <div class="text-amor text-xl text-amonelu-coracao">Amonelu Stickers</div>
+        <nav class="flex gap-4 text-sm">
+            <a href="#inicio" class="hover:text-amonelu-coracao">Início</a>
+            <a href="#personalizados" class="hover:text-amonelu-coracao">Personalizados</a>
+            <a href="#pacotes" class="hover:text-amonelu-coracao">Pacotes</a>
+            <a href="#vitrine" class="hover:text-amonelu-coracao">Stickers</a>
+            <a href="#cadastro" class="hover:text-amonelu-coracao">Cadastrar</a>
+            <a href="#carrinho" class="hover:text-amonelu-coracao flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> Carrinho <span id="qtdCarrinho" class="bg-amonelu-coracao text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="max-w-4xl mx-auto m-4 p-4 bg-white rounded-3xl shadow-lg">
+        <div class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-5 text-center">
+            <h1 class="text-5xl md:text-6xl text-amor text-amonelu-coracao sombra-texto">AMONELU</h1>
+            <h2 class="text-2xl text-amor text-amonelu-roxoEscuro">STICKERS</h2>
+            <p class="mt-2">Prontos e personalizados 💖</p>
+        </div>
+    </section>
+
+    <section id="personalizados" class="max-w-4xl mx-auto my-6 px-4">
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="bg-gradient-to-r from-pink-100 to-purple-100 rounded-xl p-5 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-center md:text-left">
+                    <h2 class="text-amor text-2xl text-amonelu-coracao mb-2">✨ Stickers Personalizados</h2>
+                    <p>Envie sua foto, faça o pagamento e receba em pouco tempo!</p>
+                    <button onclick="abrirForm()" class="mt-3 bg-amonelu-coracao text-white px-5 py-2 rounded-full">Quero personalizar</button>
+                </div>
+                <img src="https://i.imgur.com/7vQaR9L.png" alt="Exemplo" class="w-40 h-32 object-contain">
+            </div>
+        </div>
+    </section>
+
+    <div id="modalForm" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-amor text-xl text-amonelu-coracao">Seu Pedido</h3>
+                <button onclick="fecharForm()" class="text-xl">&times;</button>
+            </div>
+            <form id="formPersonalizado" class="space-y-3">
+                <div>
+                    <label class="text-sm">📸 Envie sua foto</label>
+                    <input type="file" id="foto" accept="image/*" class="w-full border p-2 rounded-lg" required>
+                </div>
+                <div>
+                    <label class="text-sm">📦 Quantidade</label>
+                    <select id="qtd" class="w-full border p-2 rounded-lg" required>
+                        <option value="8">8 unidades - R$ 12,00</option>
+                        <option value="12">12 unidades - R$ 18,00</option>
+                        <option value="20">20 unidades - R$ 28,00</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-sm">📱 Seu WhatsApp</label>
+                    <input type="tel" id="whats" placeholder="(00) 99999-9999" class="w-full border p-2 rounded-lg" required>
+                </div>
+                <button type="submit" class="w-full bg-amonelu-roxo text-white py-2 rounded-lg">Adicionar ao carrinho</button>
+            </form>
         </div>
     </div>
-</header>
 
-<div class="container mx-auto px-3">
-
-    <!-- Banner Principal -->
-    <section id="inicio" class="banner-principal mb-6 p-3">
-        <img src="imagens/banner.png" alt="Amonelu Stickers" class="w-full h-auto rounded-xl">
-        <div class="text-center mt-3">
-            <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-rosa-escuro to-roxo-escuro bg-clip-text text-transparent">AMONELU STICKERS</h2>
-            <p class="text-gray-600 mt-2">✨ Stickers animados e prontos para WhatsApp e Instagram ✨</p>
-            <div class="flex flex-wrap justify-center gap-3 mt-3 text-sm">
-                <span class="flex items-center gap-1">💖 Alta qualidade</span>
-                <span class="flex items-center gap-1">⚡ Entrega rápida</span>
-                <span class="flex items-center gap-1">💝 Feito com amor</span>
-            </div>
+    <section id="pacotes" class="max-w-4xl mx-auto my-6 px-4">
+        <h2 class="text-amor text-2xl text-center text-amonelu-coracao mb-4">♡ Pacotes Prontos ♡</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <button onclick="addPacote(3,5)" class="animar bg-white p-3 rounded-xl shadow">3 unid <br> <span class="font-bold text-amonelu-coracao">R$ 5,00</span></button>
+            <button onclick="addPacote(5,8)" class="animar bg-white p-3 rounded-xl shadow">5 unid <br> <span class="font-bold text-amonelu-coracao">R$ 8,00</span></button>
+            <button onclick="addPacote(10,15)" class="animar bg-white p-3 rounded-xl shadow">10 unid <br> <span class="font-bold text-amonelu-coracao">R$ 15,00</span></button>
+            <button onclick="addPacote(20,25)" class="animar bg-white p-3 rounded-xl shadow">20 unid <br> <span class="font-bold text-amonelu-coracao">R$ 25,00</span></button>
+            <button onclick="addPacote(30,35)" class="animar bg-white p-3 rounded-xl shadow">30 unid <br> <span class="font-bold text-amonelu-coracao">R$ 35,00</span></button>
+            <button onclick="addPacote(50,55)" class="animar bg-white p-3 rounded-xl shadow">50 unid <br> <span class="font-bold text-amonelu-coracao">R$ 55,00</span></button>
         </div>
     </section>
 
-    <!-- Tabela de Preços -->
-    <section class="bg-white/90 rounded-3xl p-5 shadow mb-6">
-        <h3 class="text-xl font-bold text-center text-roxo-escuro mb-4">⭐ Nossos Preços ⭐</h3>
-        <div class="grid grid-cols-3 gap-3 text-center">
-            <div class="bg-rosa-claro rounded-full p-2">3 unidades<br><strong class="text-rosa-escuro">R$ 5,00</strong></div>
-            <div class="bg-rosa-claro rounded-full p-2">5 unidades<br><strong class="text-rosa-escuro">R$ 8,00</strong></div>
-            <div class="bg-rosa-claro rounded-full p-2">10 unidades<br><strong class="text-rosa-escuro">R$ 15,00</strong></div>
-            <div class="bg-rosa-claro rounded-full p-2">20 unidades<br><strong class="text-rosa-escuro">R$ 25,00</strong></div>
-            <div class="bg-rosa-claro rounded-full p-2">30 unidades<br><strong class="text-rosa-escuro">R$ 35,00</strong></div>
-            <div class="bg-rosa-claro rounded-full p-2">50 unidades<br><strong class="text-rosa-escuro">R$ 55,00</strong></div>
+    <section id="vitrine" class="max-w-4xl mx-auto my-6 px-4">
+        <h2 class="text-amor text-2xl text-center text-amonelu-roxoEscuro mb-4">🎀 Meus Stickers 🎀</h2>
+        <div id="listaStickers" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </section>
+
+    <section id="cadastro" class="max-w-4xl mx-auto my-6 px-4">
+        <div class="bg-white rounded-2xl shadow-lg p-5">
+            <h3 class="text-amor text-xl text-center text-amonelu-roxoEscuro mb-4">📝 Cadastrar Novo Sticker</h3>
+            <form id="formCadastro" class="space-y-3">
+                <div>
+                    <label class="text-sm">Nome</label>
+                    <input type="text" id="nome" class="w-full border p-2 rounded-lg" placeholder="Ex: Gato Fofo" required>
+                </div>
+                <div>
+                    <label class="text-sm">Valor R$</label>
+                    <input type="number" step="0.01" min="0" id="valor" class="w-full border p-2 rounded-lg" placeholder="2,00" required>
+                </div>
+                <div>
+                    <label class="text-sm">Imagem</label>
+                    <input type="file" id="imagem" accept="image/*" class="w-full border p-2 rounded-lg" required>
+                </div>
+                <button type="submit" class="w-full bg-amonelu-roxo text-white py-2 rounded-lg">Salvar na loja ✨</button>
+            </form>
         </div>
     </section>
 
-    <!-- Vitrine dos Stickers -->
-    <section id="produtos" class="mb-8">
-        <h3 class="text-xl font-bold text-center text-roxo-escuro mb-5">💖 Nossos Stickers 💖</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-
-            <!-- Modelo 1 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers1.png" alt="Modelo 1" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 1</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd1', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd1" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd1', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 1', 2, 'qtd1')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 2 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers2.png" alt="Modelo 2" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 2</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd2', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd2" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd2', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 2', 2, 'qtd2')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 3 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers3.png" alt="Modelo 3" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 3</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd3', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd3" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd3', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 3', 2, 'qtd3')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 4 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers4.png" alt="Modelo 4" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 4</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd4', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd4" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd4', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 4', 2, 'qtd4')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 5 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers5.png" alt="Modelo 5" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 5</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd5', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd5" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd5', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 5', 2, 'qtd5')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 6 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers6.png" alt="Modelo 6" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 6</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd6', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd6" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd6', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 6', 2, 'qtd6')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 7 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers7.png" alt="Modelo 7" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 7</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd7', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd7" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd7', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 7', 2, 'qtd7')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 8 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers8.png" alt="Modelo 8" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 8</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd8', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd8" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd8', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 8', 2, 'qtd8')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
-            <!-- Modelo 9 -->
-            <div class="card-sticker p-4 text-center">
-                <img src="imagens/stickers9.png" alt="Modelo 9" class="w-32 h-32 object-contain mx-auto mb-2">
-                <h4 class="text-roxo-escuro font-medium">Modelo 9</h4>
-                <p class="text-rosa-escuro font-bold my-1">R$ 2,00</p>
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <button onclick="alterarQtd('qtd9', -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">-</button>
-                    <input type="number" id="qtd9" min="1" max="20" value="1" class="w-12 text-center border rounded-md">
-                    <button onclick="alterarQtd('qtd9', 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">+</button>
-                </div>
-                <button onclick="adicionar('Modelo 9', 2, 'qtd9')" class="btn-rosa w-full py-2">Adicionar 🛒</button>
-            </div>
-
+    <section id="carrinho" class="max-w-4xl mx-auto my-6 px-4">
+        <div class="bg-white rounded-2xl shadow-lg p-5">
+            <h3 class="text-amor text-xl text-center text-amonelu-roxoEscuro mb-3">🛒 Seu Carrinho</h3>
+            <div id="itensCarrinho" class="mb-3"><p class="text-center text-gray-500">Vazio</p></div>
+            <div class="text-center text-lg font-medium mb-3">Total: <span id="total" class="text-amonelu-coracao">R$ 0,00</span></div>
+            <button onclick="irParaPagamento()" class="w-full bg-amonelu-roxo text-white py-2 rounded-lg mb-2">Pagar com PIX</button>
+            <p class="text-xs text-center text-gray-500">💳 Pague por qualquer banco, não precisa ter PicPay</p>
         </div>
     </section>
 
-    <!-- Carrinho e Pagamento -->
-    <section id="carrinho" class="bg-white/90 rounded-3xl p-5 shadow mb-8">
-        <h3 class="text-xl font-bold text-center text-roxo-escuro mb-4">🛒 Seu Carrinho</h3>
-        <div id="listaCarrinho" class="space-y-2 mb-4 text-center text-gray-600">Nenhum item adicionado ainda 💖</div>
-        <div class="text-center text-lg font-bold text-roxo-escuro mb-4">Total: R$ <span id="valorTotal">0,00</span></div>
-
-        <div id="pagamento" class="hidden p-4 bg-rosa-claro rounded-2xl mb-4">
-            <h4 class="text-lg font-bold text-center text-roxo-escuro mb-3">💳 Pagamento via Pix</h4>
-            <p class="text-center mb-2">Chave Pix: <strong>coloque_sua_chave_aqui</strong></p>
-            <p class="text-center text-sm">Envie o comprovante para o WhatsApp: <strong>(81) 9XXXX-XXXX</strong></p>
+    <div id="modalPagamento" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md text-center">
+            <h3 class="text-amor text-xl text-amonelu-coracao mb-3">Pagamento via PIX</h3>
+            <p>Valor: <span id="valorPix" class="font-bold text-xl">R$ 0,00</span></p>
+            <div class="bg-gray-100 p-3 rounded-lg my-3">
+                <p class="text-sm">Chave PIX:</p>
+                <p class="font-mono break-all bg-white p-2 rounded">amonelustickers@gmail.com</p>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Pague por qualquer banco/Nubank/Itaú/Caixa etc.</p>
+            <div class="flex gap-2 justify-center">
+                <button onclick="fecharPag()" class="px-4 py-2 border rounded-lg">Voltar</button>
+                <button onclick="confirmarPagamento()" class="px-4 py-2 bg-green-500 text-white rounded-lg">Já Paguei</button>
+            </div>
         </div>
+    </div>
 
-        <button onclick="finalizarCompra()" class="btn-roxo w-full py-3 text-lg font-medium">Finalizar Compra ✨</button>
-    </section>
+    <footer class="text-center py-4 text-sm text-gray-600">💖 Amonelu Stickers</footer>
 
-    <footer class="text-center text-roxo-escuro text-sm mt-6 pb-8">
-        <p class="text-lg">💖✨ Obrigada por visitar a Amonelu Stickers ✨💖</p>
-        <p>Atendimento com carinho | 2026</p>
-    </footer>
+    <script>
+        let carrinho = [];
+        let lista = [];
+        const CHAVE_PIX = "amonelustickers@gmail.com"; // ← AQUI DEPOIS VOCÊ COLOCA A SUA
 
-</div>
+        function abrirForm() { document.getElementById('modalForm').classList.remove('hidden'); }
+        function fecharForm() { document.getElementById('modalForm').classList.add('hidden'); }
 
-<script>
-let carrinho = [];
+        document.getElementById('formPersonalizado').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const qtd = document.getElementById('qtd').value;
+            const valor = qtd == 8 ? 12 : qtd == 12 ? 18 : 28;
+            const whats = document.getElementById('whats').value;
+            const foto = document.getElementById('foto').files[0];
+            carrinho.push({ tipo: 'personalizado', nome: `Personalizado ${qtd} unid`, valor, whats, foto });
+            atualizarCarrinho();
+            fecharForm();
+            alert('Adicionado ao carrinho!');
+        });
 
-function alterarQtd(idCampo, valor) {
-    const campo = document.getElementById(idCampo);
-    let novaQtd = parseInt(campo.value) + valor;
-    if(novaQtd < 1) novaQtd = 1;
-    if(novaQtd > 20) novaQtd = 20;
-    campo.value = novaQtd;
-}
+        function addPacote(qtd, val) {
+            carrinho.push({ tipo: 'pacote', nome: `Pacote ${qtd} unid`, valor: val });
+            atualizarCarrinho();
+        }
 
-function adicionar(nome, preco, idQtd) {
-    const qtd = parseInt(document.getElementById(idQtd).value);
-    carrinho.push({ nome: nome, preco: preco, quantidade: qtd });
-    atualizarCarrinho();
-    alert(`${nome} adicionado ao carrinho! 🎀`);
-}
+        function addItem(nome, val, img) {
+            carrinho.push({ tipo: 'unidade', nome, valor: val, img });
+            atualizarCarrinho();
+        }
 
-function atualizarCarrinho() {
-    const lista = document.getElementById('listaCarrinho');
-    const totalEl = document.getElementById('valorTotal');
-    const contadorEl = document.getElementById('contador');
+        function atualizarCarrinho() {
+            const div = document.getElementById('itensCarrinho');
+            const totalEl = document.getElementById('total');
+            const qtdEl = document.getElementById('qtdCarrinho');
+            if(carrinho.length === 0) {
+                div.innerHTML = '<p class="text-center text-gray-500">Vazio</p>';
+                totalEl.textContent = 'R$ 0,00';
+                qtdEl.textContent = '0';
+                return;
+            }
+            div.innerHTML = '';
+            let total = 0;
+            carrinho.forEach((item, i) => {
+                const p = document.createElement('div');
+                p.className = 'flex justify-between border-b py-1';
+                p.innerHTML = `<span>${item.nome}</span><span>R$ ${item.valor.toFixed(2).replace('.', ',')} <button onclick="remover(${i})" class="text-red-500 text-xs">X</button></span>`;
+                div.appendChild(p);
+                total += item.valor;
+            });
+            totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            qtdEl.textContent = carrinho.length;
+        }
 
-    if (carrinho.length === 0) {
-        lista.innerHTML = 'Nenhum item adicionado ainda 💖';
-        totalEl.textContent = '0,00';
-        contadorEl.textContent = '0';
-        return;
-    }
+        function remover(i) { carrinho.splice(i,1); atualizarCarrinho(); }
 
-    let html = '';
-    let total = 0;
-    let qtdTotal = 0;
+        function irParaPagamento() {
+            if(carrinho.length === 0) return alert('Carrinho vazio');
+            const total = carrinho.reduce((s,i)=>s+i.valor,0);
+            document.getElementById('valorPix').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            document.querySelector('.font-mono').textContent = CHAVE_PIX;
+            document.getElementById('modalPagamento').classList.remove('hidden');
+        }
 
-    carrinho.forEach(item => {
-        const subtotal = item.preco * item.quantidade;
-        total += subtotal;
-        qtdTotal += item.quantidade;
-        html += `<div class="flex justify-between p-2 bg-rosa-claro rounded-xl">
-                    <span>${item.nome} × ${item.quantidade}</span>
-                    <span>R$ ${subtotal.toFixed(2)}</span>
-                 </div>`;
-    });
+        function fecharPag() { document.getElementById('modalPagamento').classList.add('hidden'); }
 
-    lista.innerHTML = html;
-    totalEl.textContent = total.toFixed(2);
-    contadorEl.textContent = qtdTotal;
-}
-
-function finalizarCompra() {
-    if (carrinho.length === 0) {
-        alert('Adicione pelo menos um sticker primeiro! 💖');
-        return;
-    }
-    document.getElementById('pagamento').classList.remove('hidden');
-    alert('Pedido pronto! Role a página para ver os dados do Pix 🎀');
-}
-</script>
-
-</body>
-</html>
+        function confirmarPagamento() {
+            fecharPag();
+            let msg = '✅ Pagamento confirmado! 🎉\n\n';
+            carrinho.forEach(item => {
+                if(item.tipo === '
 
