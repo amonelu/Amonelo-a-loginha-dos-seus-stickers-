@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amonelu Stickers</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         amonelu: {
-                            fundo: '#FFE6F2',
+                            fundo: '#FFF0F8',
                             rosaClaro: '#FFD9EC',
-                            rosa: '#FFB8D9',
+                            rosa: '#FFB8E0',
+                            rosaMedio: '#FF87C0',
                             rosaEscuro: '#FF5E9E',
+                            roxoClaro: '#E8C8FF',
                             roxo: '#D896F0',
                             roxoEscuro: '#B86ED9'
                         }
@@ -32,258 +34,461 @@
         @layer utilities {
             .text-amor { font-family: 'Pacifico', cursive; }
             .fundo-coracoes {
-                background-color: #FFE6F2;
-                background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5C10 2 6 1 3 3S0 9 3 12l9 9 9-9c3-3 3-9 0-11s-7-1-9 3z' fill='none' stroke='%23FFB8D9' stroke-width='0.6'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 6C10 3 6 2 3 4S0 10 3 13l9 9 9-9c3-3 3-9 0-11s-7-1-9 3z' fill='none' stroke='%23FF87C0' stroke-width='0.5'/%3E%3C/svg%3E");
-                background-size: 36px 36px, 48px 48px;
-                background-position: 0 0, 18px 18px;
+                background-color: #FFF0F8;
+                background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5C10 2 6 1 3 3S0 9 3 12l9 9 9-9c3-3 3-9 0-11s-7-1-9 3z' fill='none' stroke='%23FFB8E0' stroke-width='0.5'/%3E%3C/svg%3E");
+                background-size: 36px 36px;
                 background-attachment: fixed;
             }
-            .banner-correto {
-                width: 100%; max-width: 100%; margin: 0; padding: 0; display: block; overflow: hidden;
+            .borda-fofa {
+                border: 3px solid transparent;
+                background-clip: padding-box, border-box;
+                background-origin: padding-box, border-box;
+                background-image: linear-gradient(white, white), linear-gradient(to right, #FF87C0, #D896F0);
+                border-radius: 1rem;
             }
-            .banner-correto img { width: 100%; height: auto; display: block; object-fit: contain; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-<body class="fundo-coracoes min-h-screen font-principal">
+<body class="fundo-coracoes min-h-screen font-principal text-gray-800">
 
-    <!-- BANNER -->
-    <section class="banner-correto">
-        <img id="banner-principal" src="banner.png" alt="Amonelu Stickers">
-    </section>
+    <!-- CABEÇALHO -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl"></i>
+                <h1 class="text-amor text-2xl text-amonelu-rosaEscuro">Amonelu <span class="text-amonelu-roxo">Stickers</span></h1>
+            </div>
+            <nav class="hidden md:flex gap-6 text-sm font-medium">
+                <a href="#inicio" class="hover:text-amonelu-rosaEscuro transition">Início</a>
+                <a href="#personalizados" class="hover:text-amonelu-rosaEscuro transition">Stickers</a>
+                <a href="#pacotes" class="hover:text-amonelu-rosaEscuro transition">Pacotinhos</a>
+                <a href="#avaliacoes" class="hover:text-amonelu-rosaEscuro transition">Avaliações</a>
+            </nav>
+            <button onclick="abrirCarrinho()" class="flex items-center gap-1 bg-amonelu-rosaClaro px-3 py-1.5 rounded-full hover:bg-amonelu-rosa transition">
+                <i class="fa-solid fa-shopping-cart"></i>
+                <span>Carrinho (<span id="qtdCarrinho">0</span>)</span>
+            </button>
+        </div>
+    </header>
 
-    <!-- SEÇÃO PRINCIPAL -->
-    <section class="max-w-4xl mx-auto my-5 px-4">
-        <div class="bg-white rounded-2xl shadow-md p-4">
-            <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-4 text-center sm:text-left">
-                <h2 class="text-amor text-xl text-amonelu-rosaEscuro mb-2">✨ Stickers Personalizados</h2>
-                <p class="text-sm text-gray-600">Envie sua foto, transformamos em sticker com qualidade e você faz o pagamento!</p>
-                <button onclick="abrirForm()" class="mt-2 bg-amonelu-rosaEscuro text-white px-5 py-2 rounded-full text-sm hover:bg-pink-600">Quero personalizar</button>
+    <!-- BANNER PRINCIPAL -->
+    <section id="inicio" class="max-w-7xl mx-auto px-4 py-6">
+        <div class="borda-fofa bg-white p-6 flex flex-col md:flex-row items-center gap-6 rounded-2xl">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-amor text-4xl md:text-5xl text-amonelu-rosaEscuro mb-4">AMONELU STICKERS</h2>
+                <p class="text-lg text-gray-600 mb-4">Stickers personalizados e prontos para deixar suas conversas mais divertidas e especiais!</p>
+                <div class="flex gap-4 mb-6">
+                    <div class="flex items-center gap-1">
+                        <i class="fa-solid fa-star text-amonelu-rosaEscuro"></i>
+                        <span>Alta qualidade</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <i class="fa-solid fa-bolt text-amonelu-roxo"></i>
+                        <span>Entrega rápida</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <i class="fa-solid fa-heart text-amonelu-rosaEscuro"></i>
+                        <span>Feito com amor</span>
+                    </div>
+                </div>
+                <button onclick="abrirFormPersonalizar()" class="bg-gradient-to-r from-amonelu-rosaEscuro to-amonelu-roxo text-white px-8 py-3 rounded-full text-lg font-medium hover:opacity-90 transition">✨ Quero personalizar o meu!</button>
+            </div>
+            <div class="w-full md:w-1/2">
+                <img src="https://i.imgur.com/8ZbQxQH.png" alt="Amonelu Stickers" class="rounded-xl shadow-lg w-full h-auto">
             </div>
         </div>
     </section>
 
-    <!-- FORMULÁRIO DE ENVIO -->
-    <div id="modalForm" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl p-5 w-full max-w-md shadow-lg max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-amor text-xl text-amonelu-rosaEscuro">Seu Pedido</h3>
-                <button onclick="fecharForm()" class="text-2xl text-gray-500 hover:text-amonelu-rosaEscuro">&times;</button>
+    <!-- PACOTES PRONTOS - COM VISUALIZAÇÃO DOS MODELOS -->
+    <section id="pacotes" class="max-w-7xl mx-auto px-4 py-8">
+        <h3 class="text-amor text-3xl text-center text-amonelu-rosaEscuro mb-6">🎀 Pacotinhos Prontos</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- PACOTE 3 UNIDADES -->
+            <div class="borda-fofa bg-white p-5 rounded-xl hover:shadow-lg transition-shadow">
+                <h4 class="text-center text-lg font-bold mb-2">3 Unidades</h4>
+                <p class="text-center text-amonelu-rosaEscuro font-bold text-xl mb-4">R$ 5,00</p>
+                <p class="text-center text-sm text-gray-600 mb-3">Modelos inclusos:</p>
+                <div class="flex justify-center gap-2 mb-4">
+                    <img src="https://i.imgur.com/3u7qL8y.png" alt="Sticker 1" class="w-16 h-16 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/9XZ7cRf.png" alt="Sticker 2" class="w-16 h-16 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/E6RjGkL.png" alt="Sticker 3" class="w-16 h-16 rounded border border-pink-200">
+                </div>
+                <button onclick="adicionarPacote(3, 5, '3 Stickers Prontos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-2 rounded-lg font-medium transition">
+                    🛒 Adicionar ao Carrinho
+                </button>
             </div>
-            <form id="formPedido" class="space-y-4">
+
+            <!-- PACOTE 5 UNIDADES -->
+            <div class="borda-fofa bg-white p-5 rounded-xl hover:shadow-lg transition-shadow">
+                <h4 class="text-center text-lg font-bold mb-2">5 Unidades</h4>
+                <p class="text-center text-amonelu-rosaEscuro font-bold text-xl mb-4">R$ 8,00</p>
+                <p class="text-center text-sm text-gray-600 mb-3">Modelos inclusos:</p>
+                <div class="flex justify-center gap-2 mb-4 flex-wrap">
+                    <img src="https://i.imgur.com/3u7qL8y.png" alt="Sticker 1" class="w-14 h-14 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/9XZ7cRf.png" alt="Sticker 2" class="w-14 h-14 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/E6RjGkL.png" alt="Sticker 3" class="w-14 h-14 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/Q9vZ5aP.png" alt="Sticker 4" class="w-14 h-14 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/7fXzR8L.png" alt="Sticker 5" class="w-14 h-14 rounded border border-pink-200">
+                </div>
+                <button onclick="adicionarPacote(5, 8, '5 Stickers Prontos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-2 rounded-lg font-medium transition">
+                    🛒 Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- PACOTE 10 UNIDADES -->
+            <div class="borda-fofa bg-white p-5 rounded-xl hover:shadow-lg transition-shadow">
+                <h4 class="text-center text-lg font-bold mb-2">10 Unidades</h4>
+                <p class="text-center text-amonelu-rosaEscuro font-bold text-xl mb-4">R$ 15,00</p>
+                <p class="text-center text-sm text-gray-600 mb-3">Modelos inclusos:</p>
+                <div class="grid grid-cols-5 gap-2 mb-4 justify-items-center">
+                    <img src="https://i.imgur.com/3u7qL8y.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/9XZ7cRf.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/E6RjGkL.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/Q9vZ5aP.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/7fXzR8L.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/2R4kLmN.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/5xTzQ8M.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/8VbN9sR.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/1kPz7wQ.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/6LmX9yT.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                </div>
+                <button onclick="adicionarPacote(10, 15, '10 Stickers Prontos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-2 rounded-lg font-medium transition">
+                    🛒 Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- PACOTE 20 UNIDADES -->
+            <div class="borda-fofa bg-white p-5 rounded-xl hover:shadow-lg transition-shadow">
+                <h4 class="text-center text-lg font-bold mb-2">20 Unidades</h4>
+                <p class="text-center text-amonelu-rosaEscuro font-bold text-xl mb-4">R$ 25,00</p>
+                <p class="text-center text-sm text-gray-600 mb-3">Modelos variados:</p>
+                <div class="grid grid-cols-5 gap-2 mb-4 justify-items-center">
+                    <img src="https://i.imgur.com/3u7qL8y.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/9XZ7cRf.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/E6RjGkL.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/Q9vZ5aP.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/7fXzR8L.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/2R4kLmN.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/5xTzQ8M.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/8VbN9sR.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/1kPz7wQ.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/6LmX9yT.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                </div>
+                <p class="text-center text-xs text-gray-500 mb-3">*Mais 10 modelos diferentes inclusos</p>
+                <button onclick="adicionarPacote(20, 25, '20 Stickers Prontos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-2 rounded-lg font-medium transition">
+                    🛒 Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- PACOTE 30 UNIDADES -->
+            <div class="borda-fofa bg-white p-5 rounded-xl hover:shadow-lg transition-shadow">
+                <h4 class="text-center text-lg font-bold mb-2">30 Unidades</h4>
+                <p class="text-center text-amonelu-rosaEscuro font-bold text-xl mb-4">R$ 35,00</p>
+                <p class="text-center text-sm text-gray-600 mb-3">Modelos variados:</p>
+                <div class="grid grid-cols-5 gap-2 mb-4 justify-items-center">
+                    <img src="https://i.imgur.com/3u7qL8y.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/9XZ7cRf.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/E6RjGkL.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/Q9vZ5aP.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/7fXzR8L.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/2R4kLmN.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/5xTzQ8M.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/8VbN9sR.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/1kPz7wQ.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/6LmX9yT.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                </div>
+                <p class="text-center text-xs text-gray-500 mb-3">*Mais 20 modelos diferentes inclusos</p>
+                <button onclick="adicionarPacote(30, 35, '30 Stickers Prontos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-2 rounded-lg font-medium transition">
+                    🛒 Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- PACOTE 50 UNIDADES -->
+            <div class="borda-fofa bg-white p-5 rounded-xl hover:shadow-lg transition-shadow">
+                <h4 class="text-center text-lg font-bold mb-2">50 Unidades</h4>
+                <p class="text-center text-amonelu-rosaEscuro font-bold text-xl mb-4">R$ 55,00</p>
+                <p class="text-center text-sm text-gray-600 mb-3">Modelos variados:</p>
+                <div class="grid grid-cols-5 gap-2 mb-4 justify-items-center">
+                    <img src="https://i.imgur.com/3u7qL8y.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/9XZ7cRf.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/E6RjGkL.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/Q9vZ5aP.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/7fXzR8L.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/2R4kLmN.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/5xTzQ8M.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/8VbN9sR.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/1kPz7wQ.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                    <img src="https://i.imgur.com/6LmX9yT.png" alt="Sticker" class="w-12 h-12 rounded border border-pink-200">
+                </div>
+                <p class="text-center text-xs text-gray-500 mb-3">*Mais 40 modelos diferentes inclusos</p>
+                <button onclick="adicionarPacote(50, 55, '50 Stickers Prontos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-2 rounded-lg font-medium transition">
+                    🛒 Adicionar ao Carrinho
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO DE PERSONALIZAÇÃO -->
+    <div id="modalPersonalizar" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-amor text-2xl text-amonelu-rosaEscuro">✨ Personalizar Stickers</h3>
+                <button onclick="fecharFormPersonalizar()" class="text-2xl text-gray-500 hover:text-amonelu-rosaEscuro">&times;</button>
+            </div>
+            <form id="formPersonalizar" class="space-y-4">
                 <div>
-                    <label class="text-sm text-gray-700 font-medium">📸 Envie sua foto</label>
-                    <input type="file" id="foto" accept="image/*" class="w-full border border-pink-200 p-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-amonelu-rosaEscuro" required>
+                    <label class="text-sm font-medium text-gray-700 mb-1 block">📸 Envie sua foto</label>
+                    <input type="file" id="foto" accept="image/*" class="w-full border border-amonelu-rosaClaro p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amonelu-rosa" required>
                 </div>
                 <div>
-                    <label class="text-sm text-gray-700 font-medium">📦 Quantidade</label>
-                    <select id="qtd" class="w-full border border-pink-200 p-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-amonelu-rosaEscuro" required>
+                    <label class="text-sm font-medium text-gray-700 mb-1 block">📦 Quantidade</label>
+                    <select id="qtdPersonalizar" class="w-full border border-amonelu-rosaClaro p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amonelu-rosa" required>
                         <option value="8">8 unidades - R$ 12,00</option>
                         <option value="12">12 unidades - R$ 18,00</option>
                         <option value="20">20 unidades - R$ 28,00</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-amonelu-roxo text-white py-2 rounded-lg hover:bg-purple-600">Gerar Sticker e Adicionar ao Carrinho</button>
+                <button type="submit" class="w-full bg-gradient-to-r from-amonelu-rosaEscuro to-amonelu-roxo text-white py-3 rounded-lg font-medium hover:opacity-90 transition">Continuar 🛒</button>
             </form>
+        </div>
+    </div>
 
-            <!-- ÁREA DO RESULTADO -->
-            <div id="resultado" class="hidden mt-6 pt-4 border-t border-gray-200 text-center">
-                <h4 class="font-medium text-gray-700 mb-3">Seu sticker pronto:</h4>
-                <img id="imagemResultado" class="mx-auto max-w-full h-auto rounded-lg shadow mb-3" alt="Sticker gerado">
-                <button onclick="adicionarAoCarrinho()" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Confirmar e Adicionar</button>
+    <!-- CARRINHO -->
+    <div id="modalCarrinho" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-amor text-2xl text-amonelu-rosaEscuro">🛒 Meu Carrinho</h3>
+                <button onclick="fecharCarrinho()" class="text-2xl text-gray-500 hover:text-amonelu-rosaEscuro">&times;</button>
+            </div>
+            <div id="itensCarrinho" class="space-y-3 mb-4 max-h-60 overflow-y-auto">
+                <p class="text-center text-gray-500">Nenhum item adicionado ainda 💖</p>
+            </div>
+            <div class="border-t border-pink-100 pt-4">
+                <div class="flex justify-between items-center text-lg font-medium mb-4">
+                    <span>Total:</span>
+                    <span class="text-amonelu-rosaEscuro text-xl" id="valorTotal">R$ 0,00</span>
+                </div>
+                <button onclick="abrirPagamento()" class="w-full bg-gradient-to-r from-amonelu-rosaEscuro to-amonelu-roxo text-white py-3 rounded-lg font-medium hover:opacity-90 transition mb-2">Finalizar compra 💳</button>
             </div>
         </div>
     </div>
 
-    <!-- PACOTES PRONTOS -->
-    <section class="max-w-4xl mx-auto my-5 px-4">
-        <h2 class="text-amor text-2xl text-center text-amonelu-rosaEscuro mb-4">♡ Pacotes Prontos ♡</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            <div onclick="abrirPacote(3, 5, 'Pacote 3 unidades')" class="bg-white p-4 rounded-xl shadow text-center transition-transform hover:scale-[1.02]">
-                <p class="font-medium">3 unidades</p>
-                <p class="text-lg font-bold text-amonelu-rosaEscuro my-1">R$ 5,00</p>
-                <p class="text-xs text-gray-500">Clique para comprar</p>
-            </div>
-            <div onclick="abrirPacote(5, 8, 'Pacote 5 unidades')" class="bg-white p-4 rounded-xl shadow text-center transition-transform hover:scale-[1.02]">
-                <p class="font-medium">5 unidades</p>
-                <p class="text-lg font-bold text-amonelu-rosaEscuro my-1">R$ 8,00</p>
-                <p class="text-xs text-gray-500">Clique para comprar</p>
-            </div>
-            <div onclick="abrirPacote(10, 15, 'Pacote 10 unidades')" class="bg-white p-4 rounded-xl shadow text-center transition-transform hover:scale-[1.02]">
-                <p class="font-medium">10 unidades</p>
-                <p class="text-lg font-bold text-amonelu-rosaEscuro my-1">R$ 15,00</p>
-                <p class="text-xs text-gray-500">Clique para comprar</p>
-            </div>
-            <div onclick="abrirPacote(20, 25, 'Pacote 20 unidades')" class="bg-white p-4 rounded-xl shadow text-center transition-transform hover:scale-[1.02]">
-                <p class="font-medium">20 unidades</p>
-                <p class="text-lg font-bold text-amonelu-rosaEscuro my-1">R$ 25,00</p>
-                <p class="text-xs text-gray-500">Clique para comprar</p>
-            </div>
-            <div onclick="abrirPacote(30, 35, 'Pacote 30 unidades')" class="bg-white p-4 rounded-xl shadow text-center transition-transform hover:scale-[1.02]">
-                <p class="font-medium">30 unidades</p>
-                <p class="text-lg font-bold text-amonelu-rosaEscuro my-1">R$ 35,00</p>
-                <p class="text-xs text-gray-500">Clique para comprar</p>
-            </div>
-            <div onclick="abrirPacote(50, 55, 'Pacote 50 unidades')" class="bg-white p-4 rounded-xl shadow text-center transition-transform hover:scale-[1.02]">
-                <p class="font-medium">50 unidades</p>
-                <p class="text-lg font-bold text-amonelu-rosaEscuro my-1">R$ 55,00</p>
-                <p class="text-xs text-gray-500">Clique para comprar</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CARRINHO E PAGAMENTO -->
-    <section class="max-w-4xl mx-auto my-6 px-4">
-        <div class="bg-white rounded-2xl shadow-md p-5 text-center">
-            <h3 class="text-amor text-xl text-amonelu-roxoEscuro mb-4">🛒 Seu Carrinho</h3>
-            <div id="itensCarrinho" class="mb-4 text-gray-600">Nenhum item adicionado</div>
-            <div class="text-lg font-medium mb-4">Total: <span id="totalCarrinho" class="text-amonelu-rosaEscuro font-bold">R$ 0,00</span></div>
-            <button onclick="irParaPagamento()" class="w-full bg-amonelu-roxo text-white py-3 rounded-lg mb-2 hover:bg-purple-600">Pagar com PIX</button>
-            <p class="text-xs text-gray-500">💳 Pague por qualquer banco</p>
-        </div>
-    </section>
-
-    <!-- MODAL PAGAMENTO -->
-    <div id="modalPagamento" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl p-5 w-full max-w-md text-center shadow-lg">
-            <h3 class="text-amor text-xl text-amonelu-rosaEscuro mb-3">Pagamento PIX</h3>
-            <p>Valor total: <span id="valorPix" class="font-bold text-xl text-amonelu-rosaEscuro">R$ 0,00</span></p>
-            <div class="bg-gray-100 p-3 rounded-lg my-4">
+    <!-- PAGAMENTO PIX -->
+    <div id="modalPagamento" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl text-center">
+            <h3 class="text-amor text-2xl text-amonelu-rosaEscuro mb-3">💖 Pagamento PIX</h3>
+            <p class="text-lg mb-4">Valor total: <span class="font-bold text-amonelu-rosaEscuro" id="valorPix">R$ 0,00</span></p>
+            <div class="bg-amonelu-rosaClaro p-4 rounded-xl mb-4">
                 <p class="text-sm text-gray-600 mb-2">Chave PIX:</p>
-                <p class="font-mono break-all bg-white p-2 rounded border border-pink-200">amonelustickers@gmail.com</p>
+                <!-- 👇 ONDE MUDAR A CHAVE PIX -->
+                <p class="font-mono break-all bg-white p-2 rounded border border-amonelu-rosa">amonelustickers@gmail.com</p>
             </div>
-            <button onclick="confirmarPagamento()" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Já paguei ✅</button>
-            <button onclick="fecharPag()" class="w-full mt-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100">Voltar</button>
+            <button onclick="confirmarPagamento()" class="w-full bg-green-500 text-white py-3 rounded-lg font-medium hover:bg-green-600 transition mb-2">✅ Já paguei</button>
+            <button onclick="fecharPag()" class="w-full border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition">Voltar</button>
         </div>
     </div>
 
-    <footer class="text-center py-5 text-sm text-gray-500">💖 Amonelu Stickers - Feito com carinho ❤️</footer>
+    <!-- AVALIAÇÕES -->
+    <section id="avaliacoes" class="max-w-7xl mx-auto px-4 py-8">
+        <h3 class="text-amor text-3xl text-center text-amonelu-rosaEscuro mb-6">💬 O que dizem nossas clientes</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="borda-fofa bg-white p-4 rounded-xl">
+                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 italic">"Perfeitos! Muito fofos e com muita qualidade, vou comprar sempre!"</p>
+                <p class="text-right text-sm font-medium mt-3">— Ana Clara</p>
+            </div>
+            <div class="borda-fofa bg-white p-4 rounded-xl">
+                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 italic">"Entrega super rápida e atendimento maravilhoso! Amei demais"</p>
+                <p class="text-right text-sm font-medium mt-3">— Juliana Silva</p>
+            </div>
+            <div class="borda-fofa bg-white p-4 rounded-xl">
+                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 italic">"Os stickers são incríveis! Todas as minhas amigas amaram, super recomendo!"</p>
+                <p class="text-right text-sm font-medium mt-3">— Beatriz Souza</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-white border-t border-amonelu-rosaClaro py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h4 class="text-amor text-xl text-amonelu-rosaEscuro mb-3">Amonelu Stickers</h4>
+            <p class="text-gray-600 text-sm mb-4">Feito com muito amor para deixar suas conversas mais fofas e divertidas 💖</p>
+            <p class="text-xs text-gray-500">© 2026 Amonelu Stickers - Todos os direitos reservados</p>
+        </div>
+    </footer>
 
     <script>
-        // ⚠️ AQUI É ONDE VOCÊ COLA A SUA CHAVE
-        const REPLICATE_API_KEY = "";
+        // 👇 ONDE MUDAR A CHAVE DA IA
+        const REPLICATE_API_KEY = "Token r8_FtQDIWCFMg6MtiFdk9P70biTa3qv2BOVyMEw";
 
         let carrinho = [];
-        let pacoteAtual = {};
-        let imagemGerada = "";
+        let pedidos = JSON.parse(localStorage.getItem('pedidosAmonelu')) || [];
 
-        function abrirForm() { document.getElementById('modalForm').classList.remove('hidden'); }
-        function fecharForm() {
-            document.getElementById('modalForm').classList.add('hidden');
-            document.getElementById('resultado').classList.add('hidden');
-            document.getElementById('formPedido').classList.remove('hidden');
-        }
-
-        // ENVIAR FOTO PARA A IA
-        document.getElementById('formPedido').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const arquivo = document.getElementById('foto').files[0];
-            const qtd = document.getElementById('qtd').value;
-
-            if (!arquivo) return alert("Escolha uma foto primeiro!");
-
-            // Converter imagem para enviar
-            const leitor = new FileReader();
-            leitor.onload = async function(evento) {
-                const imagemBase64 = evento.target.result;
-
-                try {
-                    alert("Aguarde um instante, estamos gerando seu sticker...");
-
-                    const resposta = await fetch("https://api.replicate.com/v1/predictions", {
-                        method: "POST",
-                        headers: {
-                            "Authorization": REPLICATE_API_KEY,
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            version: "lucataco/remove-bg:95fcc2a26d3899cd6c2691c900465aaeff466285a65c14638f8335235f29895",
-                            input: {
-                                image: imagemBase64,
-                                border_width: 12,
-                                border_color: "#FFFFFF",
-                                output_format: "png"
-                            }
-                        })
-                    });
-
-                    const dados = await resposta.json();
-                    const idTarefa = dados.id;
-
-                    const resultadoFinal = await verificarResultado(idTarefa);
-                    imagemGerada = resultadoFinal.output;
-
-                    document.getElementById('formPedido').classList.add('hidden');
-                    document.getElementById('imagemResultado').src = imagemGerada;
-                    document.getElementById('resultado').classList.remove('hidden');
-
-                } catch (erro) {
-                    console.error(erro);
-                    alert("Ops, houve um erro. Confira se a chave está correta!");
-                }
-            };
-            leitor.readAsDataURL(arquivo);
-        });
-
-        // Esperar a IA terminar
-        async function verificarResultado(id) {
-            return new Promise((resolve) => {
-                const intervalo = setInterval(async () => {
-                    const resposta = await fetch(`https://api.replicate.com/v1/predictions/${id}`, {
-                        headers: { "Authorization": REPLICATE_API_KEY }
-                    });
-                    const dados = await resposta.json();
-                    if (dados.status === "succeeded") {
-                        clearInterval(intervalo);
-                        resolve(dados);
-                    }
-                    if (dados.status === "failed") {
-                        clearInterval(intervalo);
-                        alert("Não foi possível gerar o sticker. Tente outra foto.");
-                    }
-                }, 2000);
-            });
-        }
-
-        function adicionarAoCarrinho() {
-            const qtd = document.getElementById('qtd').value;
-            const valor = qtd == 8 ? 12 : qtd == 12 ? 18 : 28;
-            carrinho.push({ nome: `Sticker Personalizado ${qtd}un`, valor: valor });
-            atualizarCarrinho();
-            fecharForm();
-            alert("Adicionado ao carrinho!");
-        }
-
-        function abrirPacote(qtd, valor, nome) {
-            carrinho.push({ nome: nome, valor: valor });
-            atualizarCarrinho();
-            alert(`${nome} adicionado!`);
-        }
-
-        function atualizarCarrinho() {
-            const div = document.getElementById('itensCarrinho');
-            const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
-            div.innerHTML = carrinho.length
-                ? carrinho.map((item, i) => `<div class="flex justify-between border-b py-2"><span>${item.nome}</span><span>R$ ${item.valor.toFixed(2).replace('.', ',')}</span></div>`).join('')
-                : "Nenhum item adicionado";
-            document.getElementById('totalCarrinho').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-        }
-
-        function irParaPagamento() {
+        // Funções dos modais
+        function abrirFormPersonalizar() { document.getElementById('modalPersonalizar').classList.remove('hidden'); }
+        function fecharFormPersonalizar() { document.getElementById('modalPersonalizar').classList.add('hidden'); }
+        function abrirCarrinho() { atualizarCarrinho(); document.getElementById('modalCarrinho').classList.remove('hidden'); }
+        function fecharCarrinho() { document.getElementById('modalCarrinho').classList.add('hidden'); }
+        function abrirPagamento() {
             if (carrinho.length === 0) return alert("Adicione itens primeiro!");
             const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
             document.getElementById('valorPix').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
             document.getElementById('modalPagamento').classList.remove('hidden');
         }
-
         function fecharPag() { document.getElementById('modalPagamento').classList.add('hidden'); }
+
+        // 📥 Salva o pedido quando o cliente paga
         function confirmarPagamento() {
-            alert("✅ Pedido recebido! Obrigado pela compra.");
+            const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
+            const arquivoFoto = document.getElementById('foto')?.files[0];
+            const fotoBase64 = arquivoFoto ? URL.createObjectURL(arquivoFoto) : null;
+
+            const novoPedido = {
+                id: Date.now(),
+                data: new Date().toLocaleString('pt-BR'),
+                itens: [...carrinho],
+                total: total,
+                foto: fotoBase64,
+                status: "aguardando_confirmacao",
+                stickerGerado: null
+            };
+
+            pedidos.push(novoPedido);
+            localStorage.setItem('pedidosAmonelu', JSON.stringify(pedidos));
+
+            alert("✅ Pedido registrado! Em breve você receberá seu sticker pronto 💖");
             carrinho = [];
             atualizarCarrinho();
             fecharPag();
         }
+
+        // 🔐 PAINEL ADMIN
+        function abrirPainelAdmin() {
+            const senha = prompt("Digite a senha de acesso:");
+            // 👇 ONDE MUDAR A SENHA DO PAINEL
+            if (senha !== "amonelu123") return alert("Senha incorreta!");
+
+            let html = `<div class="fixed inset-0 bg-white z-50 p-4 overflow-auto">
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-amor text-3xl text-amonelu-rosaEscuro">📋 Painel de Pedidos</h2>
+                        <button onclick="fecharPainel()" class="text-xl text-gray-500">✖ Fechar</button>
+                    </div>`;
+
+            if (pedidos.length === 0) {
+                html += `<p class="text-center text-gray-500 py-10">Nenhum pedido recebido ainda 💖</p>`;
+            } else {
+                pedidos.forEach((pedido, index) => {
+                    html += `<div class="borda-fofa bg-white p-4 mb-4 rounded-xl">
+                        <p><strong>Pedido #${pedido.id}</strong> - ${pedido.data}</p>
+                        <p>Total: R$ ${pedido.total.toFixed(2).replace('.', ',')}</p>
+                        <p>Status: <span class="font-bold ${pedido.status === 'aguardando_confirmacao' ? 'text-amber-500' : 'text-green-600'}">${pedido.status === 'aguardando_confirmacao' ? 'Aguardando confirmação' : 'Liberado'}</span></p>
+                        ${pedido.foto ? `<img src="${pedido.foto}" alt="Foto do cliente" class="w-24 h-24 object-cover rounded my-2">` : ''}
+                        ${pedido.status === 'aguardando_confirmacao' ? 
+                            `<button onclick="liberarPedido(${index})" class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">✅ Confirmar e Liberar</button>` : 
+                            pedido.stickerGerado ? `<a href="${pedido.stickerGerado}" download class="text-amonelu-rosaEscuro font-medium">📥 Ver e baixar sticker pronto</a>` : ''}
+                    </div>`;
+                });
+            }
+
+            html += `</div></div>`;
+            document.body.insertAdjacentHTML('beforeend', html);
+        }
+
+        function fecharPainel() {
+            document.querySelector('.fixed.inset-0').remove();
+        }
+
+        // 🚀 Gera o sticker e libera para o cliente
+        async function liberarPedido(index) {
+            const pedido = pedidos[index];
+            if (!pedido.foto) return alert("Esse pedido não tem foto!");
+
+            alert("✨ Gerando o sticker... aguarde alguns segundos");
+
+            try {
+                const respostaBlob = await fetch(pedido.foto);
+                const blob = await respostaBlob.blob();
+                const leitor = new FileReader();
+                leitor.onload = async function(e) {
+                    const imagemBase64 = e.target.result;
+
+                    const respostaAPI = await fetch("https://api.replicate.com/v1/predictions", {
+                        method: "POST",
+                        headers: { "Authorization": REPLICATE_API_KEY, "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            version: "lucataco/remove-bg:95fcc2a26d3899cd6c2691c900465aaeff466285a65c14638f8335235f29895",
+                            input: { image: imagemBase64, border_width: 12, border_color: "#FFFFFF", output_format: "png" }
+                        })
+                    });
+
+                    const dados = await respostaAPI.json();
+                    const resultado = await verificarStatus(dados.id);
+                    pedido.stickerGerado = resultado.output;
+                    pedido.status = "liberado";
+
+                    pedidos[index] = pedido;
+                    localStorage.setItem('pedidosAmonelu', JSON.stringify(pedidos));
+                    alert("✅ Pedido liberado com sucesso! Agora o cliente já pode baixar o sticker.");
+                    abrirPainelAdmin();
+                };
+                leitor.readAsDataURL(blob);
+
+            } catch (erro) {
+                alert("❌ Erro ao gerar o sticker. Verifique sua chave ou tente novamente.");
+                console.error(erro);
+            }
+        }
+
+        async function verificarStatus(id) {
+            return new Promise((resolve) => {
+                const intervalo = setInterval(async () => {
+                    const res = await fetch(`https://api.replicate.com/v1/predictions/${id}`, { headers: { "Authorization": REPLICATE_API_KEY } });
+                    const dados = await res.json();
+                    if (dados.status === "succeeded") { clearInterval(intervalo); resolve(dados); }
+                    if (dados.status === "failed") { clearInterval(intervalo); alert("❌ Não foi possível gerar o sticker. Tente outra foto."); }
+                }, 2000);
+            });
+        }
+
+        function adicionarPacote(qtd, valor, nome) {
+            carrinho.push({ nome: nome, valor: valor });
+            atualizarCarrinho();
+            alert(`✅ ${nome} adicionado ao carrinho!`);
+        }
+
+        function atualizarCarrinho() {
+            const div = document.getElementById('itensCarrinho');
+            const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
+            document.getElementById('qtdCarrinho').textContent = carrinho.length;
+            document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            if (carrinho.length === 0) {
+                div.innerHTML = "<p class='text-center text-gray-500'>Nenhum item adicionado ainda 💖</p>";
+            } else {
+                div.innerHTML = carrinho.map((item, i) => `<div class="flex justify-between items-center border-b border-pink-100 py-2">
+                    <span>${item.nome}</span>
+                    <span class="font-medium">R$ ${item.valor.toFixed(2).replace('.', ',')}</span>
+                </div>`).join('');
+            }
+        }
+
+        // 📌 Acesso ao seu painel
+        window.onload = function() {
+            if (window.location.search === "?admin=1") {
+                abrirPainelAdmin();
+            }
+        };
     </script>
 </body>
 </html>
