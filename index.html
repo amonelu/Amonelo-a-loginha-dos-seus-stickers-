@@ -18,7 +18,8 @@
                             rosaEscuro: '#FF5E9E',
                             roxoClaro: '#E8C8FF',
                             roxo: '#D896F0',
-                            roxoEscuro: '#B86ED9',
+                            roxoMedio: '#B86ED9',
+                            roxoEscuro: '#9A4FC2',
                             fundo: '#FFF5FA'
                         }
                     },
@@ -48,6 +49,13 @@
             .borda-vitrine:hover {
                 border-color: #FF87C0;
                 box-shadow: 0 4px 12px rgba(255, 94, 158, 0.15);
+            }
+            .botao-roxo {
+                background-color: #B86ED9;
+                transition: background-color 0.2s ease;
+            }
+            .botao-roxo:hover {
+                background-color: #9A4FC2;
             }
         }
     </style>
@@ -104,7 +112,7 @@
                 <h4 class="font-bold text-lg">3 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 5,00</p>
                 <button onclick="abrirDetalhe('3 Stickers', 5.00, 3)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
-                <button onclick="adicionarAoCarrinho('3 Stickers', 5.00)" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
+                <button onclick="adicionarAoCarrinho('3 Stickers', 5.00)" class="w-full botao-roxo text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
 
             <!-- Pacote 5 -->
@@ -112,7 +120,7 @@
                 <h4 class="font-bold text-lg">5 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 8,00</p>
                 <button onclick="abrirDetalhe('5 Stickers', 8.00, 5)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
-                <button onclick="adicionarAoCarrinho('5 Stickers', 8.00)" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
+                <button onclick="adicionarAoCarrinho('5 Stickers', 8.00)" class="w-full botao-roxo text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
 
             <!-- Pacote 10 -->
@@ -120,7 +128,7 @@
                 <h4 class="font-bold text-lg">10 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 15,00</p>
                 <button onclick="abrirDetalhe('10 Stickers', 15.00, 10)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
-                <button onclick="adicionarAoCarrinho('10 Stickers', 15.00)" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
+                <button onclick="adicionarAoCarrinho('10 Stickers', 15.00)" class="w-full botao-roxo text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
 
             <!-- Pacote 20 -->
@@ -128,7 +136,7 @@
                 <h4 class="font-bold text-lg">20 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 25,00</p>
                 <button onclick="abrirDetalhe('20 Stickers', 25.00, 20)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
-                <button onclick="adicionarAoCarrinho('20 Stickers', 25.00)" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
+                <button onclick="adicionarAoCarrinho('20 Stickers', 25.00)" class="w-full botao-roxo text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
 
             <!-- Pacote 30 -->
@@ -136,7 +144,7 @@
                 <h4 class="font-bold text-lg">30 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 35,00</p>
                 <button onclick="abrirDetalhe('30 Stickers', 35.00, 30)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
-                <button onclick="adicionarAoCarrinho('30 Stickers', 35.00)" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
+                <button onclick="adicionarAoCarrinho('30 Stickers', 35.00)" class="w-full botao-roxo text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
 
             <!-- Pacote 50 -->
@@ -144,13 +152,13 @@
                 <h4 class="font-bold text-lg">50 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 55,00</p>
                 <button onclick="abrirDetalhe('50 Stickers', 55.00, 50)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
-                <button onclick="adicionarAoCarrinho('50 Stickers', 55.00)" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
+                <button onclick="adicionarAoCarrinho('50 Stickers', 55.00)" class="w-full botao-roxo text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
 
         </div>
     </section>
 
-    <!-- NOSSAS VITRINES - MESMO ESQUEMA DOS PACOTES -->
+    <!-- NOSSAS VITRINES -->
     <section id="vitrines" class="max-w-7xl mx-auto px-4 py-8">
         <h3 class="text-amor text-3xl text-center text-amonelu-rosaEscuro mb-6">✨ Nossas Categorias</h3>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -161,7 +169,7 @@
                 <h4 class="font-bold text-sm">Figuinhas Fofas</h4>
                 <p class="text-xs text-gray-600 my-2">Animais • Casais • Kawaii</p>
                 <button onclick="abrirDetalhe('Figuinhas Fofas', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Figuinhas Fofas')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Figuinhas Fofas')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Engraçados -->
@@ -170,7 +178,7 @@
                 <h4 class="font-bold text-sm">Engraçados</h4>
                 <p class="text-xs text-gray-600 my-2">Memes • Zoeiras • Deboche</p>
                 <button onclick="abrirDetalhe('Engraçados', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Engraçados')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Engraçados')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- LGBTQIA+ -->
@@ -179,7 +187,7 @@
                 <h4 class="font-bold text-sm">LGBTQIA+</h4>
                 <p class="text-xs text-gray-600 my-2">Orgulho • Casais • Frases</p>
                 <button onclick="abrirDetalhe('LGBTQIA+', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('LGBTQIA+')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('LGBTQIA+')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Signos -->
@@ -188,7 +196,7 @@
                 <h4 class="font-bold text-sm">Signos</h4>
                 <p class="text-xs text-gray-600 my-2">Todos os signos • Frases</p>
                 <button onclick="abrirDetalhe('Signos', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Signos')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Signos')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Filmes & Séries -->
@@ -197,7 +205,7 @@
                 <h4 class="font-bold text-sm">Filmes & Séries</h4>
                 <p class="text-xs text-gray-600 my-2">Harry Potter • Disney • Anime</p>
                 <button onclick="abrirDetalhe('Filmes & Séries', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Filmes & Séries')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Filmes & Séries')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Música -->
@@ -206,7 +214,7 @@
                 <h4 class="font-bold text-sm">Música</h4>
                 <p class="text-xs text-gray-600 my-2">Funk • Pop • Gospel • K-pop</p>
                 <button onclick="abrirDetalhe('Música', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Música')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Música')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Amor -->
@@ -215,7 +223,7 @@
                 <h4 class="font-bold text-sm">Amor</h4>
                 <p class="text-xs text-gray-600 my-2">Romântico • Carinho</p>
                 <button onclick="abrirDetalhe('Amor', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Amor')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Amor')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Frases -->
@@ -224,7 +232,7 @@
                 <h4 class="font-bold text-sm">Frases</h4>
                 <p class="text-xs text-gray-600 my-2">Motivação • Bom dia • Boa noite</p>
                 <button onclick="abrirDetalhe('Frases', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Frases')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Frases')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Xingamentos -->
@@ -233,7 +241,7 @@
                 <h4 class="font-bold text-sm">Xingamentos</h4>
                 <p class="text-xs text-gray-600 my-2">Leves • Engraçados • Memes</p>
                 <button onclick="abrirDetalhe('Xingamentos', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Xingamentos')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Xingamentos')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Pets -->
@@ -242,16 +250,16 @@
                 <h4 class="font-bold text-sm">Pets</h4>
                 <p class="text-xs text-gray-600 my-2">Cachorros • Gatos • Animais</p>
                 <button onclick="abrirDetalhe('Pets', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Pets')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Pets')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
-            <!-- Câmeras / Momentos -->
+            <!-- Momentos -->
             <div class="borda-vitrine bg-white p-3 text-center">
                 <img src="https://i.imgur.com/3u7qL8y.png" alt="Momentos" class="w-16 h-16 mx-auto mb-2">
                 <h4 class="font-bold text-sm">Momentos</h4>
                 <p class="text-xs text-gray-600 my-2">Registros • Lembranças</p>
                 <button onclick="abrirDetalhe('Momentos', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Momentos')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Momentos')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
             <!-- Datas Especiais -->
@@ -260,7 +268,7 @@
                 <h4 class="font-bold text-sm">Datas Especiais</h4>
                 <p class="text-xs text-gray-600 my-2">Aniversário • Natal • Páscoa</p>
                 <button onclick="abrirDetalhe('Datas Especiais', null, 12)" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs mb-1">👀 Ver modelos</button>
-                <button onclick="abrirEscolhaPacote('Datas Especiais')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
+                <button onclick="abrirEscolhaPacote('Datas Especiais')" class="w-full botao-roxo text-white py-1 rounded text-xs">🛒 Escolher pacote</button>
             </div>
 
         </div>
@@ -275,7 +283,7 @@
             </div>
             <div class="flex justify-center gap-2 flex-wrap my-4" id="imagensDetalhe"></div>
             <p class="text-center text-lg font-medium mb-4" id="valorDetalhe"></p>
-            <button onclick="adicionarDoDetalhe()" id="btnAdicionarDetalhe" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-medium hidden">✅ Adicionar ao Carrinho</button>
+            <button onclick="adicionarDoDetalhe()" id="btnAdicionarDetalhe" class="w-full botao-roxo text-white py-2 rounded-lg font-medium hidden">✅ Adicionar ao Carrinho</button>
         </div>
     </div>
 
@@ -288,12 +296,12 @@
             </div>
             <p class="text-center text-gray-600 mb-4">Escolha o tamanho do pacote:</p>
             <div class="space-y-2 mb-4">
-                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 3 Stickers', 5.00)" class="w-full border border-amonelu-rosa hover:bg-amonelu-rosaClaro p-2 rounded">3 unidades → R$ 5,00</button>
-                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 5 Stickers', 8.00)" class="w-full border border-amonelu-rosa hover:bg-amonelu-rosaClaro p-2 rounded">5 unidades → R$ 8,00</button>
-                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 10 Stickers', 15.00)" class="w-full border border-amonelu-rosa hover:bg-amonelu-rosaClaro p-2 rounded">10 unidades → R$ 15,00</button>
-                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 20 Stickers', 25.00)" class="w-full border border-amonelu-rosa hover:bg-amonelu-rosaClaro p-2 rounded">20 unidades → R$ 25,00</button>
-                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 30 Stickers', 35.00)" class="w-full border border-amonelu-rosa hover:bg-amonelu-rosaClaro p-2 rounded">30 unidades → R$ 35,00</button>
-                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 50 Stickers', 55.00)" class="w-full border border-amonelu-rosa hover:bg-amonelu-rosaClaro p-2 rounded">50 unidades → R$ 55,00</button>
+                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 3 Stickers', 5.00)" class="w-full border border-amonelu-roxo hover:bg-amonelu-roxoClaro p-2 rounded">3 unidades → R$ 5,00</button>
+                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 5 Stickers', 8.00)" class="w-full border border-amonelu-roxo hover:bg-amonelu-roxoClaro p-2 rounded">5 unidades → R$ 8,00</button>
+                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 10 Stickers', 15.00)" class="w-full border border-amonelu-roxo hover:bg-amonelu-roxoClaro p-2 rounded">10 unidades → R$ 15,00</button>
+                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 20 Stickers', 25.00)" class="w-full border border-amonelu-roxo hover:bg-amonelu-roxoClaro p-2 rounded">20 unidades → R$ 25,00</button>
+                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 30 Stickers', 35.00)" class="w-full border border-amonelu-roxo hover:bg-amonelu-roxoClaro p-2 rounded">30 unidades → R$ 35,00</button>
+                <button onclick="adicionarAoCarrinhoPacote('{categoria} - 50 Stickers', 55.00)" class="w-full border border-amonelu-roxo hover:bg-amonelu-roxoClaro p-2 rounded">50 unidades → R$ 55,00</button>
             </div>
         </div>
     </div>
@@ -327,7 +335,7 @@
                 <p class="text-sm text-gray-600 mb-2">Chave PIX:</p>
                 <p class="font-mono break-all bg-white p-2 rounded border border-amonelu-rosa">amonelustickers@gmail.com</p>
             </div>
-            <button onclick="confirmarPagamento()" class="w-full bg-green-500 text-white py-3 rounded-lg font-medium hover:bg-green-600 transition mb-2">✅ Já paguei</button>
+            <button onclick="confirmarPagamento()" class="w-full botao-roxo text-white py-3 rounded-lg font-medium hover:bg-amonelu-roxoEscuro transition mb-2">✅ Já paguei</button>
             <button onclick="fecharModal('modalPagamento')" class="w-full border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition">Voltar</button>
         </div>
     </div>
