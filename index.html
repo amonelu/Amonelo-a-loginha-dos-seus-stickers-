@@ -12,14 +12,14 @@
                 extend: {
                     colors: {
                         amonelu: {
-                            fundo: '#FFF0F8',
-                            rosaClaro: '#FFD9EC',
+                            rosaClaro: '#FFE6F2',
                             rosa: '#FFB8E0',
                             rosaMedio: '#FF87C0',
                             rosaEscuro: '#FF5E9E',
                             roxoClaro: '#E8C8FF',
                             roxo: '#D896F0',
-                            roxoEscuro: '#B86ED9'
+                            roxoEscuro: '#B86ED9',
+                            fundo: '#FFF5FA'
                         }
                     },
                     fontFamily: {
@@ -33,39 +33,44 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .text-amor { font-family: 'Pacifico', cursive; }
-            .fundo-coracoes {
-                background-color: #FFF0F8;
-                background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5C10 2 6 1 3 3S0 9 3 12l9 9 9-9c3-3 3-9 0-11s-7-1-9 3z' fill='none' stroke='%23FFB8E0' stroke-width='0.5'/%3E%3C/svg%3E");
-                background-size: 36px 36px;
-                background-attachment: fixed;
-            }
             .borda-fofa {
-                border: 3px solid transparent;
+                border: 2px solid transparent;
                 background-clip: padding-box, border-box;
                 background-origin: padding-box, border-box;
                 background-image: linear-gradient(white, white), linear-gradient(to right, #FF87C0, #D896F0);
                 border-radius: 1rem;
             }
+            .borda-vitrine {
+                border: 2px solid #FFD9EC;
+                border-radius: 1rem;
+                transition: all 0.2s ease;
+            }
+            .borda-vitrine:hover {
+                border-color: #FF87C0;
+                box-shadow: 0 4px 12px rgba(255, 94, 158, 0.15);
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-<body class="fundo-coracoes min-h-screen font-principal text-gray-800">
+<body class="bg-amonelu-fundo min-h-screen font-principal text-gray-800">
 
     <!-- CABEÇALHO -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center gap-2">
-                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl"></i>
+                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-xl"></i>
                 <h1 class="text-amor text-2xl text-amonelu-rosaEscuro">Amonelu <span class="text-amonelu-roxo">Stickers</span></h1>
             </div>
             <nav class="hidden md:flex gap-6 text-sm font-medium">
                 <a href="#inicio" class="hover:text-amonelu-rosaEscuro transition">Início</a>
-                <a href="#personalizados" class="hover:text-amonelu-rosaEscuro transition">Stickers</a>
+                <a href="#pacotes" class="hover:text-amonelu-rosaEscuro transition">Stickers</a>
                 <a href="#pacotes" class="hover:text-amonelu-rosaEscuro transition">Pacotinhos</a>
+                <a href="#personalizados" class="hover:text-amonelu-rosaEscuro transition">Personalizados</a>
                 <a href="#avaliacoes" class="hover:text-amonelu-rosaEscuro transition">Avaliações</a>
+                <a href="#contato" class="hover:text-amonelu-rosaEscuro transition">Contato</a>
             </nav>
-            <button onclick="abrirCarrinho()" class="flex items-center gap-1 bg-amonelu-rosaClaro px-3 py-1.5 rounded-full hover:bg-amonelu-rosa transition">
+            <button onclick="abrirCarrinho()" class="flex items-center gap-1 bg-amonelu-rosaClaro px-4 py-1.5 rounded-full hover:bg-amonelu-rosa transition">
                 <i class="fa-solid fa-shopping-cart"></i>
                 <span>Carrinho (<span id="qtdCarrinho">0</span>)</span>
             </button>
@@ -74,109 +79,229 @@
 
     <!-- BANNER PRINCIPAL -->
     <section id="inicio" class="max-w-7xl mx-auto px-4 py-6">
-        <div class="borda-fofa bg-white p-6 flex flex-col md:flex-row items-center gap-6 rounded-2xl">
-            <div class="w-full md:w-1/2">
-                <h2 class="text-amor text-4xl md:text-5xl text-amonelu-rosaEscuro mb-4">AMONELU STICKERS</h2>
-                <p class="text-lg text-gray-600 mb-4">Stickers personalizados com carinho para deixar suas conversas mais divertidas e especiais!</p>
-                <div class="flex gap-4 mb-6">
-                    <div class="flex items-center gap-1">
-                        <i class="fa-solid fa-star text-amonelu-rosaEscuro"></i>
-                        <span>Alta qualidade</span>
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <i class="fa-solid fa-bolt text-amonelu-roxo"></i>
-                        <span>Entrega rápida</span>
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <i class="fa-solid fa-heart text-amonelu-rosaEscuro"></i>
-                        <span>Feito com amor</span>
-                    </div>
+        <div class="borda-fofa bg-white p-5 rounded-2xl overflow-hidden">
+            <img src="https://i.imgur.com/8ZbQxQH.png" alt="Amonelu Stickers" class="w-full h-auto rounded-xl">
+            <div class="flex flex-wrap justify-center gap-4 mt-4 text-center">
+                <div class="flex items-center gap-2 text-amonelu-rosaEscuro">
+                    <i class="fa-solid fa-star"></i> Alta qualidade
                 </div>
-                <button onclick="abrirFormPersonalizar()" class="bg-gradient-to-r from-amonelu-rosaEscuro to-amonelu-roxo text-white px-8 py-3 rounded-full text-lg font-medium hover:opacity-90 transition">✨ Quero personalizar o meu!</button>
-            </div>
-            <div class="w-full md:w-1/2">
-                <img src="https://i.imgur.com/8ZbQxQH.png" alt="Amonelu Stickers" class="rounded-xl shadow-lg w-full h-auto">
+                <div class="flex items-center gap-2 text-amonelu-roxo">
+                    <i class="fa-solid fa-bolt"></i> Entrega rápida
+                </div>
+                <div class="flex items-center gap-2 text-amonelu-rosaEscuro">
+                    <i class="fa-solid fa-heart"></i> Feito com amor
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PACOTES PRONTOS - AGORA COM BOTÃO DE ADICIONAR -->
+    <!-- PACOTINHOS PRONTOS -->
     <section id="pacotes" class="max-w-7xl mx-auto px-4 py-8">
         <h3 class="text-amor text-3xl text-center text-amonelu-rosaEscuro mb-6">🎀 Pacotinhos Prontos</h3>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:scale-[1.02] transition-transform">
-                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl mb-2"></i>
-                <h4 class="font-bold text-lg">3 unidades</h4>
+
+            <!-- Pacote 3 -->
+            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-lg">3 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 5,00</p>
-                <button onclick="adicionarPacote(3, 5, '3 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded-lg text-sm transition">
-                    🛒 Adicionar ao Carrinho
-                </button>
+                <button onclick="abrirDetalhePacote(3,5,'3 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
+                <button onclick="adicionarPacote(3,5,'3 Stickers')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
-            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:scale-[1.02] transition-transform">
-                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl mb-2"></i>
-                <h4 class="font-bold text-lg">5 unidades</h4>
+
+            <!-- Pacote 5 -->
+            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-lg">5 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 8,00</p>
-                <button onclick="adicionarPacote(5, 8, '5 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded-lg text-sm transition">
-                    🛒 Adicionar ao Carrinho
-                </button>
+                <button onclick="abrirDetalhePacote(5,8,'5 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
+                <button onclick="adicionarPacote(5,8,'5 Stickers')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
-            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:scale-[1.02] transition-transform">
-                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl mb-2"></i>
-                <h4 class="font-bold text-lg">10 unidades</h4>
+
+            <!-- Pacote 10 -->
+            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-lg">10 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 15,00</p>
-                <button onclick="adicionarPacote(10, 15, '10 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded-lg text-sm transition">
-                    🛒 Adicionar ao Carrinho
-                </button>
+                <button onclick="abrirDetalhePacote(10,15,'10 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
+                <button onclick="adicionarPacote(10,15,'10 Stickers')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
-            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:scale-[1.02] transition-transform">
-                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl mb-2"></i>
-                <h4 class="font-bold text-lg">20 unidades</h4>
+
+            <!-- Pacote 20 -->
+            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-lg">20 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 25,00</p>
-                <button onclick="adicionarPacote(20, 25, '20 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded-lg text-sm transition">
-                    🛒 Adicionar ao Carrinho
-                </button>
+                <button onclick="abrirDetalhePacote(20,25,'20 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
+                <button onclick="adicionarPacote(20,25,'20 Stickers')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
-            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:scale-[1.02] transition-transform">
-                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl mb-2"></i>
-                <h4 class="font-bold text-lg">30 unidades</h4>
+
+            <!-- Pacote 30 -->
+            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-lg">30 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 35,00</p>
-                <button onclick="adicionarPacote(30, 35, '30 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded-lg text-sm transition">
-                    🛒 Adicionar ao Carrinho
-                </button>
+                <button onclick="abrirDetalhePacote(30,35,'30 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
+                <button onclick="adicionarPacote(30,35,'30 Stickers')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
-            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:scale-[1.02] transition-transform">
-                <i class="fa-solid fa-heart text-amonelu-rosaEscuro text-2xl mb-2"></i>
-                <h4 class="font-bold text-lg">50 unidades</h4>
+
+            <!-- Pacote 50 -->
+            <div class="borda-fofa bg-white p-4 text-center rounded-xl hover:shadow-md transition-shadow">
+                <h4 class="font-bold text-lg">50 Stickers</h4>
                 <p class="text-amonelu-rosaEscuro font-bold text-xl my-2">R$ 55,00</p>
-                <button onclick="adicionarPacote(50, 55, '50 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded-lg text-sm transition">
-                    🛒 Adicionar ao Carrinho
-                </button>
+                <button onclick="abrirDetalhePacote(50,55,'50 Stickers')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1.5 rounded text-sm mb-2">👀 Ver modelos</button>
+                <button onclick="adicionarPacote(50,55,'50 Stickers')" class="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded text-sm">🛒 Adicionar</button>
             </div>
+
         </div>
     </section>
 
-    <!-- FORMULÁRIO DE PERSONALIZAÇÃO -->
-    <div id="modalPersonalizar" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-amor text-2xl text-amonelu-rosaEscuro">✨ Personalizar Stickers</h3>
-                <button onclick="fecharFormPersonalizar()" class="text-2xl text-gray-500 hover:text-amonelu-rosaEscuro">&times;</button>
+    <!-- NOSSAS VITRINES -->
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <h3 class="text-amor text-3xl text-center text-amonelu-rosaEscuro mb-6">✨ Nossas Vitrines</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+
+            <!-- Figuinhas Fofas -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/3u7qL8y.png" alt="Figuinhas Fofas" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Figuinhas Fofas</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Animais</li><li>Casais</li><li>Kawaii</li><li>Princesas</li>
+                </ul>
+                <button onclick="abrirVitrine('Figuinhas Fofas')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
             </div>
-            <form id="formPersonalizar" class="space-y-4">
-                <div>
-                    <label class="text-sm font-medium text-gray-700 mb-1 block">📸 Envie sua foto</label>
-                    <input type="file" id="foto" accept="image/*" class="w-full border border-amonelu-rosaClaro p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amonelu-rosa" required>
-                </div>
-                <div>
-                    <label class="text-sm font-medium text-gray-700 mb-1 block">📦 Quantidade</label>
-                    <select id="qtdPersonalizar" class="w-full border border-amonelu-rosaClaro p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amonelu-rosa" required>
-                        <option value="8">8 unidades - R$ 12,00</option>
-                        <option value="12">12 unidades - R$ 18,00</option>
-                        <option value="20">20 unidades - R$ 28,00</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-amonelu-rosaEscuro to-amonelu-roxo text-white py-3 rounded-lg font-medium hover:opacity-90 transition">Continuar 🛒</button>
-            </form>
+
+            <!-- Engraçados -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/9XZ7cRf.png" alt="Engraçados" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Engraçados</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Memes</li><li>Zoeiras</li><li>Ironias</li><li>Deboche</li>
+                </ul>
+                <button onclick="abrirVitrine('Engraçados')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- LGBTQIA+ -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/E6RjGkL.png" alt="LGBTQIA+" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">LGBTQIA+</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Empoderamento</li><li>Orgulho</li><li>Casais</li><li>Humor</li>
+                </ul>
+                <button onclick="abrirVitrine('LGBTQIA+')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Signos -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/Q9vZ5aP.png" alt="Signos" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Signos</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Todos os signos</li><li>Frases</li><li>Combinações</li>
+                </ul>
+                <button onclick="abrirVitrine('Signos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Filmes & Séries -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/7fXzR8L.png" alt="Filmes & Séries" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Filmes & Séries</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Harry Potter</li><li>Disney</li><li>Pixar</li><li>Anime</li>
+                </ul>
+                <button onclick="abrirVitrine('Filmes & Séries')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Música -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/2R4kLmN.png" alt="Música" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Música</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Funk</li><li>Pop</li><li>K-pop</li><li>Gospel</li>
+                </ul>
+                <button onclick="abrirVitrine('Música')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Amor -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/5xTzQ8M.png" alt="Amor" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Amor</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Romântico</li><li>Fofo</li><li>Pedido de namoro</li>
+                </ul>
+                <button onclick="abrirVitrine('Amor')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Frases -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/8VbN9sR.png" alt="Frases" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Frases</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Bom dia</li><li>Boa noite</li><li>Motivação</li><li>Autoestima</li>
+                </ul>
+                <button onclick="abrirVitrine('Frases')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Xingamentos -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/1kPz7wQ.png" alt="Xingamentos" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Xingamentos</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Leves</li><li>Engraçados</li><li>Deboche</li><li>Memes</li>
+                </ul>
+                <button onclick="abrirVitrine('Xingamentos')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Pets -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/6LmX9yT.png" alt="Pets" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Pets</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Cachorros</li><li>Gatos</li><li>Pitbull</li><li>Coelhos</li>
+                </ul>
+                <button onclick="abrirVitrine('Pets')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Câmeras -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/3u7qL8y.png" alt="Câmeras" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Câmeras</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Registre momentos</li><li>Memórias</li><li>Figuras temáticas</li>
+                </ul>
+                <button onclick="abrirVitrine('Câmeras')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+            <!-- Datas Especiais -->
+            <div class="borda-vitrine bg-white p-3 text-center">
+                <img src="https://i.imgur.com/9XZ7cRf.png" alt="Datas Especiais" class="w-16 h-16 mx-auto mb-2">
+                <h4 class="font-bold text-sm">Datas Especiais</h4>
+                <ul class="text-xs text-gray-600 my-2">
+                    <li>Aniversário</li><li>Dia dos Namorados</li><li>Natal</li><li>Páscoa</li>
+                </ul>
+                <button onclick="abrirVitrine('Datas Especiais')" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-1 rounded text-xs">Ver mais</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MODAL DETALHE DO PACOTE -->
+    <div id="modalDetalhe" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-amor text-2xl text-amonelu-rosaEscuro" id="tituloDetalhe"></h3>
+                <button onclick="fecharDetalhe()" class="text-2xl text-gray-500">&times;</button>
+            </div>
+            <div class="flex justify-center gap-2 flex-wrap my-4" id="imagensDetalhe"></div>
+            <p class="text-center text-lg font-medium mb-4">Valor: <span class="text-amonelu-rosaEscuro" id="valorDetalhe"></span></p>
+            <button onclick="adicionarDoDetalhe()" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-medium">✅ Adicionar ao Carrinho</button>
+        </div>
+    </div>
+
+    <!-- MODAL VITRINE -->
+    <div id="modalVitrine" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-lg shadow-xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-amor text-2xl text-amonelu-rosaEscuro" id="tituloVitrine"></h3>
+                <button onclick="fecharVitrine()" class="text-2xl text-gray-500">&times;</button>
+            </div>
+            <div class="grid grid-cols-4 gap-3 my-4" id="imagensVitrine"></div>
+            <p class="text-center text-sm text-gray-600 mb-4">Escolha um pacote acima para levar esses modelos 🎀</p>
+            <button onclick="fecharVitrine()" class="w-full bg-amonelu-rosa hover:bg-amonelu-rosaEscuro text-white py-2 rounded-lg">Fechar</button>
         </div>
     </div>
 
@@ -185,7 +310,7 @@
         <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-amor text-2xl text-amonelu-rosaEscuro">🛒 Meu Carrinho</h3>
-                <button onclick="fecharCarrinho()" class="text-2xl text-gray-500 hover:text-amonelu-rosaEscuro">&times;</button>
+                <button onclick="fecharCarrinho()" class="text-2xl text-gray-500">&times;</button>
             </div>
             <div id="itensCarrinho" class="space-y-3 mb-4 max-h-60 overflow-y-auto">
                 <p class="text-center text-gray-500">Nenhum item adicionado ainda 💖</p>
@@ -207,7 +332,6 @@
             <p class="text-lg mb-4">Valor total: <span class="font-bold text-amonelu-rosaEscuro" id="valorPix">R$ 0,00</span></p>
             <div class="bg-amonelu-rosaClaro p-4 rounded-xl mb-4">
                 <p class="text-sm text-gray-600 mb-2">Chave PIX:</p>
-                <!-- 👇 ONDE MUDAR A CHAVE PIX -->
                 <p class="font-mono break-all bg-white p-2 rounded border border-amonelu-rosa">amonelustickers@gmail.com</p>
             </div>
             <button onclick="confirmarPagamento()" class="w-full bg-green-500 text-white py-3 rounded-lg font-medium hover:bg-green-600 transition mb-2">✅ Já paguei</button>
@@ -215,179 +339,82 @@
         </div>
     </div>
 
-    <!-- AVALIAÇÕES -->
+    <!-- AVALIAÇÕES E RODAPÉ -->
     <section id="avaliacoes" class="max-w-7xl mx-auto px-4 py-8">
-        <h3 class="text-amor text-3xl text-center text-amonelu-rosaEscuro mb-6">💬 O que dizem nossas clientes</h3>
+        <h3 class="text-amor text-3xl text-center text-amonelu-rosaEscuro mb-6">💬 O que nossas clientes dizem</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="borda-fofa bg-white p-4 rounded-xl">
-                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic">"Perfeitos! Muito fofos e com muita qualidade, vou comprar sempre!"</p>
-                <p class="text-right text-sm font-medium mt-3">— Ana Clara</p>
+                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-600 italic">"Perfeitos! Muito fofos e com qualidade, vou comprar sempre!"</p>
+                <p class="text-right text-sm mt-3">— Ana Clara</p>
             </div>
             <div class="borda-fofa bg-white p-4 rounded-xl">
-                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic">"Entrega super rápida e atendimento maravilhoso! Amei demais"</p>
-                <p class="text-right text-sm font-medium mt-3">— Juliana Silva</p>
+                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-600 italic">"Entrega super rápida e atendimento maravilhoso!"</p>
+                <p class="text-right text-sm mt-3">— Juliana Silva</p>
             </div>
             <div class="borda-fofa bg-white p-4 rounded-xl">
-                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-gray-600 italic">"Os stickers são incríveis! Todas as minhas amigas amaram, super recomendo!"</p>
-                <p class="text-right text-sm font-medium mt-3">— Beatriz Souza</p>
+                <div class="flex gap-1 text-amonelu-rosaEscuro mb-2">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-600 italic">"Os stickers são incríveis! Todas amaram, super recomendo!"</p>
+                <p class="text-right text-sm mt-3">— Beatriz Souza</p>
             </div>
         </div>
     </section>
 
-    <!-- RODAPÉ -->
     <footer class="bg-white border-t border-amonelu-rosaClaro py-6">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h4 class="text-amor text-xl text-amonelu-rosaEscuro mb-3">Amonelu Stickers</h4>
-            <p class="text-gray-600 text-sm mb-4">Feito com muito amor para deixar suas conversas mais fofas e divertidas 💖</p>
+            <h4 class="text-amor text-xl text-amonelu-rosaEscuro mb-2">Amonelu Stickers</h4>
+            <p class="text-gray-600 text-sm mb-3">Feito com muito amor para deixar suas conversas mais fofas 💖</p>
             <p class="text-xs text-gray-500">© 2026 Amonelu Stickers - Todos os direitos reservados</p>
         </div>
     </footer>
 
     <script>
-        // 👇 ONDE MUDAR A CHAVE DA IA
-        const REPLICATE_API_KEY = "Token r8_FtQDIWCFMg6MtiFdk9P70biTa3qv2BOVyMEw";
-
         let carrinho = [];
-        let pedidos = JSON.parse(localStorage.getItem('pedidosAmonelu')) || [];
+        let tempPacote = {};
 
-        // Funções dos modais
-        function abrirFormPersonalizar() { document.getElementById('modalPersonalizar').classList.remove('hidden'); }
-        function fecharFormPersonalizar() { document.getElementById('modalPersonalizar').classList.add('hidden'); }
-        function abrirCarrinho() { atualizarCarrinho(); document.getElementById('modalCarrinho').classList.remove('hidden'); }
-        function fecharCarrinho() { document.getElementById('modalCarrinho').classList.add('hidden'); }
-        function abrirPagamento() {
-            if (carrinho.length === 0) return alert("Adicione itens primeiro!");
-            const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
-            document.getElementById('valorPix').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-            document.getElementById('modalPagamento').classList.remove('hidden');
-        }
-        function fecharPag() { document.getElementById('modalPagamento').classList.add('hidden'); }
-
-        // 📥 Salva o pedido quando o cliente paga
-        function confirmarPagamento() {
-            const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
-            const arquivoFoto = document.getElementById('foto')?.files[0];
-            const fotoBase64 = arquivoFoto ? URL.createObjectURL(arquivoFoto) : null;
-
-            const novoPedido = {
-                id: Date.now(),
-                data: new Date().toLocaleString('pt-BR'),
-                itens: [...carrinho],
-                total: total,
-                foto: fotoBase64,
-                status: "aguardando_confirmacao",
-                stickerGerado: null
-            };
-
-            pedidos.push(novoPedido);
-            localStorage.setItem('pedidosAmonelu', JSON.stringify(pedidos));
-
-            alert("✅ Pedido registrado! Em breve você receberá seu sticker pronto 💖");
-            carrinho = [];
-            atualizarCarrinho();
-            fecharPag();
-        }
-
-        // 🔐 PAINEL ADMIN
-        function abrirPainelAdmin() {
-            const senha = prompt("Digite a senha de acesso:");
-            // 👇 ONDE MUDAR A SENHA DO PAINEL
-            if (senha !== "amonelu123") return alert("Senha incorreta!");
-
-            let html = `<div class="fixed inset-0 bg-white z-50 p-4 overflow-auto">
-                <div class="max-w-4xl mx-auto">
-                    <div class="flex justify-between items-center mb-4">
-                        <h2 class="text-amor text-3xl text-amonelu-rosaEscuro">📋 Painel de Pedidos</h2>
-                        <button onclick="fecharPainel()" class="text-xl text-gray-500">✖ Fechar</button>
-                    </div>`;
-
-            if (pedidos.length === 0) {
-                html += `<p class="text-center text-gray-500 py-10">Nenhum pedido recebido ainda 💖</p>`;
-            } else {
-                pedidos.forEach((pedido, index) => {
-                    html += `<div class="borda-fofa bg-white p-4 mb-4 rounded-xl">
-                        <p><strong>Pedido #${pedido.id}</strong> - ${pedido.data}</p>
-                        <p>Total: R$ ${pedido.total.toFixed(2).replace('.', ',')}</p>
-                        <p>Status: <span class="font-bold ${pedido.status === 'aguardando_confirmacao' ? 'text-amber-500' : 'text-green-600'}">${pedido.status === 'aguardando_confirmacao' ? 'Aguardando confirmação' : 'Liberado'}</span></p>
-                        ${pedido.foto ? `<img src="${pedido.foto}" alt="Foto do cliente" class="w-24 h-24 object-cover rounded my-2">` : ''}
-                        ${pedido.status === 'aguardando_confirmacao' ? 
-                            `<button onclick="liberarPedido(${index})" class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">✅ Confirmar e Liberar</button>` : 
-                            pedido.stickerGerado ? `<a href="${pedido.stickerGerado}" download class="text-amonelu-rosaEscuro font-medium">📥 Ver e baixar sticker pronto</a>` : ''}
-                    </div>`;
-                });
+        // Abrir detalhe do pacote
+        function abrirDetalhePacote(qtd, valor, nome) {
+            tempPacote = {qtd, valor, nome};
+            document.getElementById('tituloDetalhe').textContent = nome;
+            document.getElementById('valorDetalhe').textContent = `R$ ${valor.toFixed(2).replace('.',',')}`;
+            const imagens = ['3u7qL8y','9XZ7cRf','E6RjGkL','Q9vZ5aP','7fXzR8L','2R4kLmN','5xTzQ8M','8VbN9sR','1kPz7wQ','6LmX9yT'];
+            let html = '';
+            for(let i=0; i<qtd; i++){
+                html += `<img src="https://i.imgur.com/${imagens[i]}.png" class="w-14 h-14 rounded border border-pink-200">`;
             }
-
-            html += `</div></div>`;
-            document.body.insertAdjacentHTML('beforeend', html);
+            document.getElementById('imagensDetalhe').innerHTML = html;
+            document.getElementById('modalDetalhe').classList.remove('hidden');
         }
 
-        function fecharPainel() {
-            document.querySelector('.fixed.inset-0').remove();
+        function fecharDetalhe() {
+            document.getElementById('modalDetalhe').classList.add('hidden');
         }
 
-        // 🚀 Gera o sticker e libera para o cliente
-        async function liberarPedido(index) {
-            const pedido = pedidos[index];
-            if (!pedido.foto) return alert("Esse pedido não tem foto!");
-
-            alert("✨ Gerando o sticker... aguarde alguns segundos");
-
-            try {
-                const respostaBlob = await fetch(pedido.foto);
-                const blob = await respostaBlob.blob();
-                const leitor = new FileReader();
-                leitor.onload = async function(e) {
-                    const imagemBase64 = e.target.result;
-
-                    const respostaAPI = await fetch("https://api.replicate.com/v1/predictions", {
-                        method: "POST",
-                        headers: { "Authorization": REPLICATE_API_KEY, "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            version: "lucataco/remove-bg:95fcc2a26d3899cd6c2691c900465aaeff466285a65c14638f8335235f29895",
-                            input: { image: imagemBase64, border_width: 12, border_color: "#FFFFFF", output_format: "png" }
-                        })
-                    });
-
-                    const dados = await respostaAPI.json();
-                    const resultado = await verificarStatus(dados.id);
-                    pedido.stickerGerado = resultado.output;
-                    pedido.status = "liberado";
-
-                    pedidos[index] = pedido;
-                    localStorage.setItem('pedidosAmonelu', JSON.stringify(pedidos));
-                    alert("✅ Pedido liberado com sucesso! Agora o cliente já pode baixar o sticker.");
-                    abrirPainelAdmin();
-                };
-                leitor.readAsDataURL(blob);
-
-            } catch (erro) {
-                alert("❌ Erro ao gerar o sticker. Verifique sua chave ou tente novamente.");
-                console.error(erro);
-            }
+        function adicionarDoDetalhe() {
+            adicionarPacote(tempPacote.qtd, tempPacote.valor, tempPacote.nome);
+            fecharDetalhe();
         }
 
-        async function verificarStatus(id) {
-            return new Promise((resolve) => {
-                const intervalo = setInterval(async () => {
-                    const res = await fetch(`https://api.replicate.com/v1/predictions/${id}`, { headers: { "Authorization": REPLICATE_API_KEY } });
-                    const dados = await res.json();
-                    if (dados.status === "succeeded") { clearInterval(intervalo); resolve(dados); }
-                    if (dados.status === "failed") { clearInterval(intervalo); alert("❌ Não foi possível gerar o sticker. Tente outra foto."); }
-                }, 2000);
+        // Abrir vitrine
+        function abrirVitrine(nome) {
+            document.getElementById('tituloVitrine').textContent = nome;
+            const imagens = ['3u7qL8y','9XZ7cRf','E6RjGkL','Q9vZ5aP','7fXzR8L','2R4kLmN','5xTzQ8M','8VbN9sR','1kPz7wQ','6LmX9yT','3u7qL8y','9XZ7cRf'];
+            let html = '';
+            imagens.forEach(img => {
+                html += `<img src="https://i.imgur.com/${img}.png" class="w-12 h-12 rounded border border-pink-200 mx-auto">`;
             });
+            document.getElementById('imagensVitrine').innerHTML = html;
+            document.getElementById('modalVitrine').classList.remove('hidden');
         }
 
+        function fecharVitrine() {
+            document.getElementById('modalVitrine').classList.add('hidden');
+        }
+
+        // Carrinho
         function adicionarPacote(qtd, valor, nome) {
-            carrinho.push({ nome: nome, valor: valor });
+            carrinho.push({nome, valor});
             atualizarCarrinho();
             alert(`✅ ${nome} adicionado ao carrinho!`);
         }
@@ -396,23 +423,41 @@
             const div = document.getElementById('itensCarrinho');
             const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
             document.getElementById('qtdCarrinho').textContent = carrinho.length;
-            document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-            if (carrinho.length === 0) {
-                div.innerHTML = "<p class='text-center text-gray-500'>Nenhum item adicionado ainda 💖</p>";
+            document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.',',')}`;
+            if(carrinho.length === 0) {
+                div.innerHTML = "<p class='text-center text-gray-500'>Nenhum item adicionado 💖</p>";
             } else {
-                div.innerHTML = carrinho.map((item, i) => `<div class="flex justify-between items-center border-b border-pink-100 py-2">
+                div.innerHTML = carrinho.map((item,i) => `<div class="flex justify-between py-1 border-b border-pink-100">
                     <span>${item.nome}</span>
-                    <span class="font-medium">R$ ${item.valor.toFixed(2).replace('.', ',')}</span>
+                    <span>R$ ${item.valor.toFixed(2).replace('.',',')}</span>
                 </div>`).join('');
             }
         }
 
-        // 📌 Acesso ao seu painel
-        window.onload = function() {
-            if (window.location.search === "?admin=1") {
-                abrirPainelAdmin();
-            }
-        };
+        function abrirCarrinho() {
+            atualizarCarrinho();
+            document.getElementById('modalCarrinho').classList.remove('hidden');
+        }
+        function fecharCarrinho() {
+            document.getElementById('modalCarrinho').classList.add('hidden');
+        }
+
+        function abrirPagamento() {
+            if(carrinho.length === 0) return alert("Adicione itens primeiro!");
+            const total = carrinho.reduce((soma, item) => soma + item.valor, 0);
+            document.getElementById('valorPix').textContent = `R$ ${total.toFixed(2).replace('.',',')}`;
+            document.getElementById('modalPagamento').classList.remove('hidden');
+        }
+        function fecharPag() {
+            document.getElementById('modalPagamento').classList.add('hidden');
+        }
+
+        function confirmarPagamento() {
+            alert("✅ Pedido registrado! Obrigada pela compra 💖");
+            carrinho = [];
+            atualizarCarrinho();
+            fecharPag();
+        }
     </script>
 </body>
 </html>
