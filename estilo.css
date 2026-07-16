@@ -30,4 +30,32 @@
   padding: 0 !important;
   display: block;
 }
+/* 1. Mudar cor dos textos dos pacotes e categorias */
+.pacote-card h3, 
+.pacote-card p,
+.categoria-card h4,
+.categoria-card p {
+  color: #2b0b42; /* Roxo escuro, quase preto — se quiser PRETO PURO use #000000 */
+}
+
+/* 2. Deixar o carrinho rosa */
+.carrinho, .carrinho * {
+  color: #ff69b4 !important; /* Rosa forte */
+  filter: none !important;
+}
+
+/* 3. Adicionar laço em cima de cada pacote */
+.pacote-card {
+  position: relative;
+  margin-top: 35px; /* Espaço para o laço */
+}
+
+.pacote-card::before {
+  content: "🎀"; /* Símbolo do laço — se quiser imagem, troque por background */
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+}
 
