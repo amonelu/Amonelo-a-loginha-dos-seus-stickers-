@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka:wght@400;600&display=swap');
 /* Fundo fofo e meigo */
 .fundo-site {
     background: linear-gradient(180deg, #FFE6F7 0%, #F0D9FF 100%);
@@ -59,3 +60,13 @@
   font-size: 32px;
 }
 
+
+/* Muda fonte dos títulos: Pacotinhos, Categorias, rodapé */
+h1, h2, h3, .titulo-secao {
+  font-family: 'Pacifico', cursive !important;
+}
+
+/* Muda fonte de todo o resto do site */
+* {
+  font-family: 'Fredoka', sans-serif !important;
+}
