@@ -363,10 +363,7 @@
         // Abrir detalhes
         function abrirDetalhe(nome, valor, qtd) {
             document.getElementById('tituloDetalhe').textContent = nome;
-            const imagens = ['3u7qL8y','9XZ7cRf','E6RjGkL','Q9vZ5aP','7fXzR8L','2R4kLmN','5xTzQ8M','8VbN9sR','1kPz7wQ','6LmX9yT','3u7qL8y','9XZ7cRf'];
-            let html = '';
-            for(let i = 0; i < qtd; i++) {
-                html += `<img src="https://i.imgur.com/${imagens[i % imagens.length]}.png" class="w-14 h-14 rounded border border-pink-200">`;
+            
             }
             document.getElementById('imagensDetalhe').innerHTML = html;
             
